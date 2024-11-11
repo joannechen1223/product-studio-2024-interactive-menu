@@ -1,6 +1,8 @@
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
+import FlavorButtons from "../features/FlavorProfile/FlavorButtons";
+
 const Container = styled.div`
   min-height: 100vh;
   background-color: #f1ede0;
@@ -54,29 +56,6 @@ const IconContainer = styled.div`
   border-radius: 12px;
 `;
 
-const FlavorButtonContainer = styled.div`
-  margin-top: 47px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const FlavorButton = styled.button`
-  height: 47px;
-  background-color: ${(props) =>
-    props.isSelected ? "#552300" : props.bgColor};
-  border: none;
-  border-radius: 43px;
-  color: ${(props) => (props.isSelected ? "#ffffff" : "#552300")};
-  font-size: 20px;
-  font-weight: 400;
-  font-family: Adamina;
-  line-height: 27.24px;
-  text-align: center;
-  padding: 10px 22px;
-  margin: 0 10px 15px 0;
-`;
-
 const ActionButtonContainer = styled.div`
   margin-top: 35px;
   display: flex;
@@ -113,17 +92,7 @@ const Home = () => {
           />
         </IconContainer>
       </SearchContainer>
-      <FlavorButtonContainer>
-        <FlavorButton bgColor="#fffece" isSelected={true}>
-          Sweet
-        </FlavorButton>
-        <FlavorButton bgColor="#eeffb5">Sour</FlavorButton>
-        <FlavorButton bgColor="#ffa2a2">Spicy</FlavorButton>
-        <FlavorButton bgColor="#fcd9b3">Crunchy</FlavorButton>
-        <FlavorButton bgColor="#ffffe9">Creamy</FlavorButton>
-        <FlavorButton bgColor="#baefb4">Light</FlavorButton>
-        <FlavorButton bgColor="#e3ccf5">Guilty</FlavorButton>
-      </FlavorButtonContainer>
+      <FlavorButtons />
       <ActionButtonContainer>
         <ActionButton bgColor="#b4b4b4">
           Skip
