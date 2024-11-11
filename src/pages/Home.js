@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Icon } from "semantic-ui-react";
+import styled from "styled-components";
 
 const Container = styled.div`
   min-height: 100vh;
