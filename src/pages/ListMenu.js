@@ -7,11 +7,19 @@ import MenuItemCard from "../components/MenuItemCard";
 import TopBar from "../components/TopBar";
 import menuData from "../data/menu";
 
-const Container = styled.div`
+const ScrollableContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 130px - 80px);
+`;
+
+const MenuContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 130px;
+  margin: 0 auto;
+  width: 100%;
 `;
 
 const StyledMenu = styled(MenuContainer)`
@@ -46,27 +54,30 @@ const ListMenu = () => {
   return (
     <>
       <TopBar menuType="list" />
-      <Container>
-        <StyledMenu
-          pointing
-          secondary
-          style={{ minWidth: "100%", padding: "0 23px" }}
-        >
-          {menuData.map((item) => (
-            <MenuItem
-              key={item.groupId}
-              content={item.groupName}
-              active={activeItem === item.groupId}
-              onClick={() => setActiveItem(item.groupId)}
-            />
-          ))}
-        </StyledMenu>
-        {menuData
-          .find((item) => item.groupId === activeItem)
-          ?.items.map((item) => (
-            <MenuItemCard key={item.itemId} item={item} />
-          ))}
-      </Container>
+      <div style={{ height: "130px", width: "100%" }}></div>
+      <ScrollableContainer>
+        <MenuContent>
+          <StyledMenu
+            pointing
+            secondary
+            style={{ minWidth: "100%", padding: "0 23px" }}
+          >
+            {menuData.map((item) => (
+              <MenuItem
+                key={item.groupId}
+                content={item.groupName}
+                active={activeItem === item.groupId}
+                onClick={() => setActiveItem(item.groupId)}
+              />
+            ))}
+          </StyledMenu>
+          {menuData
+            .find((item) => item.groupId === activeItem)
+            ?.items.map((item) => (
+              <MenuItemCard key={item.itemId} item={item} />
+            ))}
+        </MenuContent>
+      </ScrollableContainer>
       <BottomBar />
     </>
   );

@@ -24,17 +24,28 @@ const Button = styled.button`
   border: 0;
   margin: 0 16px;
   width: 80px;
+  color: #000000;
 `;
 
 const BottomBar = () => {
   return (
     <FixedBottomBar>
       <Button>
-        <Icon name="camera" size="large" style={{ margin: "0 0 5px 0" }} />
+        <Icon
+          name="camera"
+          size="large"
+          color="black"
+          style={{ margin: "0 0 5px 0" }}
+        />
         Camera
       </Button>
       <Button>
-        <Icon name="user" size="large" style={{ margin: "0 0 5px 0" }} />
+        <Icon
+          name="user"
+          size="large"
+          color="black"
+          style={{ margin: "0 0 5px 0" }}
+        />
         Profile
       </Button>
     </FixedBottomBar>
