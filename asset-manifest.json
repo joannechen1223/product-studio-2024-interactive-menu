@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/product-studio-2024-interactive-menu/static/css/main.a64f31fd.css",
-    "main.js": "/product-studio-2024-interactive-menu/static/js/main.5d5f54cf.js",
+    "main.js": "/product-studio-2024-interactive-menu/static/js/main.5c2a03ea.js",
     "static/js/453.194923b3.chunk.js": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js",
     "static/media/brand-icons.svg": "/product-studio-2024-interactive-menu/static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "/product-studio-2024-interactive-menu/static/media/icons.62d9dae4e0040e81c980.svg",
@@ -21,11 +21,11 @@
     "static/media/outline-icons.woff2": "/product-studio-2024-interactive-menu/static/media/outline-icons.687a4990ea22bb1a49d4.woff2",
     "index.html": "/product-studio-2024-interactive-menu/index.html",
     "main.a64f31fd.css.map": "/product-studio-2024-interactive-menu/static/css/main.a64f31fd.css.map",
-    "main.5d5f54cf.js.map": "/product-studio-2024-interactive-menu/static/js/main.5d5f54cf.js.map",
+    "main.5c2a03ea.js.map": "/product-studio-2024-interactive-menu/static/js/main.5c2a03ea.js.map",
     "453.194923b3.chunk.js.map": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a64f31fd.css",
-    "static/js/main.5d5f54cf.js"
+    "static/js/main.5c2a03ea.js"
   ]
 }
