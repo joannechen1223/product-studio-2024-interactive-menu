@@ -3,10 +3,16 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const FlavorButtonContainer = styled.div`
-  margin-top: 47px;
+  margin-top: 2em;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1em;
+`;
+
+const FlavorRow = styled.div`
+  display: flex;
+  justify-content: start;
+  gap: 1em;
 `;
 
 const FlavorButton = styled.button`
@@ -22,7 +28,6 @@ const FlavorButton = styled.button`
   line-height: 27.24px;
   text-align: center;
   padding: 10px 22px;
-  margin: 0 10px 15px 0;
 `;
 
 const FLAVORS = [
@@ -34,6 +39,9 @@ const FLAVORS = [
   { name: "Light", color: "#baefb4" },
   { name: "Guilty", color: "#e3ccf5" },
 ];
+
+// Split flavors into 3 rows
+const rows = [FLAVORS.slice(0, 3), FLAVORS.slice(3, 5), FLAVORS.slice(5, 7)];
 
 const FlavorButtons = ({ onSelectionChange }) => {
   const savedFlavors = useSelector(
@@ -54,17 +62,22 @@ const FlavorButtons = ({ onSelectionChange }) => {
       return newFlavors;
     });
   };
+
   return (
     <FlavorButtonContainer>
-      {FLAVORS.map(({ name, color }) => (
-        <FlavorButton
-          key={name}
-          bgColor={color}
-          isSelected={localSelectedFlavors.includes(name)}
-          onClick={() => handleFlavorClick(name)}
-        >
-          {name}
-        </FlavorButton>
+      {rows.map((row, rowIndex) => (
+        <FlavorRow key={rowIndex}>
+          {row.map(({ name, color }) => (
+            <FlavorButton
+              key={name}
+              bgColor={color}
+              isSelected={localSelectedFlavors.includes(name)}
+              onClick={() => handleFlavorClick(name)}
+            >
+              {name}
+            </FlavorButton>
+          ))}
+        </FlavorRow>
       ))}
     </FlavorButtonContainer>
   );

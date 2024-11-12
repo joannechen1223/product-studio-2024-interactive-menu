@@ -13,10 +13,10 @@ import {
 
 const Question = styled.div`
   color: #000000;
-  font-size: 25px;
+  font-size: 3.5vh;
   font-weight: 400;
   font-family: Adamina;
-  line-height: 34.05px;
+  line-height: 3.7vh;
   text-align: left;
   margin-top: 15px;
 `;
@@ -24,26 +24,26 @@ const Question = styled.div`
 const OptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 1.5em;
 `;
 
 const Option = styled.button`
-  height: 68px;
+  height: 50px;
   background-color: ${(props) => (props.isSelected ? "#552300" : "#fffff8")};
   border: none;
   border-radius: 43px;
-  padding: 0 15px;
+  padding: 0 10px;
   text-align: center;
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 400;
   font-family: Adamina;
-  line-height: 27.24px;
+  line-height: 20px;
   color: ${(props) => (props.isSelected ? "#ffffff" : "#000000")};
 `;
 
 const StyledDropdown = styled(Dropdown)`
-  margin: 35px 0 45px 0;
+  margin: 1em 0 0.5em 0;
 
   &.ui.dropdown {
     background: #fffff8;

@@ -13,8 +13,9 @@ import { setSelectedFlavors } from "../features/FlavorProfile/flavorProfileSlice
 
 const Container = styled.div`
   min-height: 100vh;
+  max-height: 100svh;
   background-color: #f1ede0;
-  padding: 30px;
+  padding: 4vh;
   display: flex;
   flex-direction: column;
 `;
@@ -26,21 +27,21 @@ const Greeting = styled.div`
   font-family: Newsreader;
   line-height: 37px;
   text-align: left;
-  margin-top: 100px;
+  margin-top: 1.5em;
 `;
 
 const Title = styled.div`
   margin-top: 28px;
   color: #552300;
-  font-size: 58px;
+  font-size: 6vh;
   font-weight: 800;
   font-family: Arial Black;
-  line-height: 50px;
+  line-height: 6vh;
   text-align: left;
 `;
 
 const SearchContainer = styled.div`
-  margin-top: 68px;
+  margin-top: 3em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

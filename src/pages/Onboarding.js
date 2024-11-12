@@ -32,7 +32,7 @@ const Title = styled.div`
   font-family: Adamina;
   line-height: 37px;
   text-align: left;
-  margin-top: 100px;
+  margin-top: 1.5em;
 `;
 
 const Subtitle = styled.div`
@@ -46,7 +46,7 @@ const Subtitle = styled.div`
 `;
 
 const ProgressContainer = styled.div`
-  margin-top: 70px;
+  margin-top: 1.5em;
 `;
 
 const Onboarding = () => {

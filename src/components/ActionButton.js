@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ActionButtonContainer = styled.div`
-  margin-top: 35px;
+  margin-top: 1em;
   display: flex;
   justify-content: flex-end;
 `;
