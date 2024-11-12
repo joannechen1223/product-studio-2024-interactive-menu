@@ -4,25 +4,39 @@ const flavorProfileSlice = createSlice({
   name: "flavorProfile", // changed from "counter" to "flavorProfile"
   initialState: {
     selectedFlavors: [], // array to store multiple selected flavors
+    spiceTolerance: null,
+    dietStyle: null,
+    nationality: null,
+    language: null,
   },
   reducers: {
-    toggleFlavor: (state, action) => {
-      const flavor = action.payload;
-      const index = state.selectedFlavors.indexOf(flavor);
-
-      if (index === -1) {
-        // Add flavor if not already selected
-        state.selectedFlavors.push(flavor);
-      } else {
-        // Remove flavor if already selected
-        state.selectedFlavors.splice(index, 1);
-      }
+    setSelectedFlavors: (state, action) => {
+      state.selectedFlavors = action.payload;
     },
     clearFlavors: (state) => {
       state.selectedFlavors = [];
     },
+    setSpiceTolerance: (state, action) => {
+      state.spiceTolerance = action.payload;
+    },
+    setDietStyle: (state, action) => {
+      state.dietStyle = action.payload;
+    },
+    setNationality: (state, action) => {
+      state.nationality = action.payload;
+    },
+    setLanguage: (state, action) => {
+      state.language = action.payload;
+    },
   },
 });
 
-export const { toggleFlavor, clearFlavors } = flavorProfileSlice.actions;
+export const {
+  setSelectedFlavors,
+  clearFlavors,
+  setSpiceTolerance,
+  setDietStyle,
+  setNationality,
+  setLanguage,
+} = flavorProfileSlice.actions;
 export default flavorProfileSlice.reducer;

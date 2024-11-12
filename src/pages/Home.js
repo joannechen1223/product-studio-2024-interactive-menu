@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
+import {
+  ActionButton,
+  ActionButtonContainer,
+} from "../components/ActionButton";
 import FlavorButtons from "../features/FlavorProfile/FlavorButtons";
+import { setSelectedFlavors } from "../features/FlavorProfile/flavorProfileSlice";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -56,27 +64,32 @@ const IconContainer = styled.div`
   border-radius: 12px;
 `;
 
-const ActionButtonContainer = styled.div`
-  margin-top: 35px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const ActionButton = styled.button`
-  height: 56px;
-  background-color: ${(props) => props.bgColor || "#ffffff"};
-  border: none;
-  border-radius: 43px;
-  color: #ffffff;
-  font-size: 22px;
-  font-weight: 400;
-  font-family: Arial;
-  line-height: 26.25px;
-  text-align: center;
-  padding: 15px 20px;
-`;
-
 const Home = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const selectedFlavors = useSelector(
+    (state) => state.flavorProfile.selectedFlavors
+  );
+  const [tempSelectedFlavors, setTempSelectedFlavors] = useState([]);
+
+  useEffect(() => {
+    setTempSelectedFlavors(selectedFlavors);
+  }, [selectedFlavors]);
+
+  const handleSelectionChange = (newSelection) => {
+    setTempSelectedFlavors(newSelection);
+  };
+
+  const handleActionButtonClick = () => {
+    if (tempSelectedFlavors.length > 0) {
+      dispatch(setSelectedFlavors(tempSelectedFlavors));
+      navigate("/onboarding");
+    } else {
+      // Handle skip logic if needed
+      navigate("/camera");
+    }
+  };
+
   return (
     <Container>
       <Greeting>Hi there!</Greeting>
@@ -92,11 +105,18 @@ const Home = () => {
           />
         </IconContainer>
       </SearchContainer>
-      <FlavorButtons />
+      <FlavorButtons onSelectionChange={handleSelectionChange} />
       <ActionButtonContainer>
-        <ActionButton bgColor="#b4b4b4">
-          Skip
-          <Icon name="forward" size="small" style={{ margin: "0 0 0 10px" }} />
+        <ActionButton
+          bgColor={tempSelectedFlavors.length > 0 ? "#7BCD0D" : "#b4b4b4"}
+          onClick={handleActionButtonClick}
+        >
+          {tempSelectedFlavors.length > 0 ? "Next" : "Skip"}
+          <Icon
+            name={tempSelectedFlavors.length > 0 ? "arrow right" : "forward"}
+            size="small"
+            style={{ margin: "0 0 0 10px" }}
+          />
         </ActionButton>
       </ActionButtonContainer>
     </Container>

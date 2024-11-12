@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-
-import { toggleFlavor } from "./flavorProfileSlice";
 
 const FlavorButtonContainer = styled.div`
   margin-top: 47px;
@@ -36,14 +35,24 @@ const FLAVORS = [
   { name: "Guilty", color: "#e3ccf5" },
 ];
 
-const FlavorButtons = () => {
-  const dispatch = useDispatch();
-  const selectedFlavors = useSelector(
+const FlavorButtons = ({ onSelectionChange }) => {
+  const savedFlavors = useSelector(
     (state) => state.flavorProfile.selectedFlavors
   );
+  const [localSelectedFlavors, setLocalSelectedFlavors] = useState([]);
+
+  useEffect(() => {
+    setLocalSelectedFlavors(savedFlavors);
+  }, [savedFlavors]);
 
   const handleFlavorClick = (flavor) => {
-    dispatch(toggleFlavor(flavor));
+    setLocalSelectedFlavors((prev) => {
+      const newFlavors = prev.includes(flavor)
+        ? prev.filter((f) => f !== flavor)
+        : [...prev, flavor];
+      onSelectionChange(newFlavors);
+      return newFlavors;
+    });
   };
   return (
     <FlavorButtonContainer>
@@ -51,7 +60,7 @@ const FlavorButtons = () => {
         <FlavorButton
           key={name}
           bgColor={color}
-          isSelected={selectedFlavors.includes(name)}
+          isSelected={localSelectedFlavors.includes(name)}
           onClick={() => handleFlavorClick(name)}
         >
           {name}
