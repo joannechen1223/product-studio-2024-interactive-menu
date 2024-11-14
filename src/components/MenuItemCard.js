@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
@@ -101,7 +102,15 @@ const LearnMoreButton = styled.button`
 `;
 
 const MenuItemCard = ({ item }) => {
-  const { itemName, translationName, ingredients, imageUrls, allergens } = item;
+  const navigate = useNavigate();
+  const {
+    itemId,
+    itemName,
+    translationName,
+    ingredients,
+    imageUrls,
+    allergens,
+  } = item;
 
   const allergenIcons = {
     gluten: glutenIcon,
@@ -134,7 +143,9 @@ const MenuItemCard = ({ item }) => {
         {imageUrls && <ItemImage src={imageUrls[0]} alt={itemName} />}
       </FlexRowContainer>
       <FlexRowReverseContainer>
-        <LearnMoreButton>
+        <LearnMoreButton
+          onClick={() => navigate(`/menu-item-detail/${itemId}`)}
+        >
           Learn more
           <Icon name="chevron right" style={{ margin: "0 0 0 5px" }} />
         </LearnMoreButton>

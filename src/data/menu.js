@@ -1,6 +1,6 @@
 const menuData = [
   {
-    groupId: 1,
+    groupId: 0,
     groupName: "Hors d'oeuvres",
     items: [
       {
