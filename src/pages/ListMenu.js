@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Menu as MenuContainer, MenuItem } from "semantic-ui-react";
 import styled from "styled-components";
 
 import BottomBar from "../components/BottomBar";
 import MenuItemCard from "../components/MenuItemCard";
 import TopBar from "../components/TopBar";
-import menuData from "../data/menu";
 
 const ScrollableContainer = styled.div`
   flex: 1;
@@ -49,7 +49,8 @@ const StyledMenu = styled(MenuContainer)`
 `;
 
 const ListMenu = () => {
-  const [activeItem, setActiveItem] = useState(menuData[0].groupId);
+  const { groups, items } = useSelector((state) => state.menu);
+  const [activeItem, setActiveItem] = useState(groups[0].groupId);
 
   return (
     <>
@@ -62,19 +63,19 @@ const ListMenu = () => {
             secondary
             style={{ minWidth: "100%", padding: "0 23px" }}
           >
-            {menuData.map((item) => (
+            {groups.map((group) => (
               <MenuItem
-                key={item.groupId}
-                content={item.groupName}
-                active={activeItem === item.groupId}
-                onClick={() => setActiveItem(item.groupId)}
+                key={group.groupId}
+                content={group.groupName}
+                active={activeItem === group.groupId}
+                onClick={() => setActiveItem(group.groupId)}
               />
             ))}
           </StyledMenu>
-          {menuData
+          {groups
             .find((item) => item.groupId === activeItem)
-            ?.items.map((item) => (
-              <MenuItemCard key={item.itemId} item={item} />
+            ?.itemIds.map((itemId) => (
+              <MenuItemCard key={itemId} item={items[itemId]} />
             ))}
         </MenuContent>
       </ScrollableContainer>
