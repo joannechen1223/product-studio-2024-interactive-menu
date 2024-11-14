@@ -7,6 +7,7 @@ import styled from "styled-components";
 import dairyIcon from "../assets/icons/dairy.svg";
 import glutenIcon from "../assets/icons/gluten.svg";
 import nutsIcon from "../assets/icons/nuts.svg";
+import HistoryModal from "../features/Menu/HistoryModal";
 
 const Container = styled.div`
   padding: 50px 20px;
@@ -234,9 +235,11 @@ const MenuItemDetail = () => {
         <AdditionalInfoButton bgColor="#fffff5" width="100%">
           Flavor
         </AdditionalInfoButton>
-        <AdditionalInfoButton bgColor="#f5fffc" width="45%">
-          History
-        </AdditionalInfoButton>
+        <HistoryModal item={item}>
+          <AdditionalInfoButton bgColor="#f5fffc" width="45%">
+            History
+          </AdditionalInfoButton>
+        </HistoryModal>
         <AdditionalInfoButton bgColor="#f6f5ff" width="45%">
           Reviews
         </AdditionalInfoButton>

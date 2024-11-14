@@ -16,6 +16,8 @@ const menuData = [
         allergens: ["dairy", "gluten", "nuts"],
         description:
           "Soupe A L'oignon is a warm, tasty onion soup with a crunchy bread slice and melty cheese on top. It's cozy and packed with rich flavors.",
+        history:
+          'French onion soup has been warming hearts since Roman times, with a rich history spanning from peasant food in medieval France to a royal favorite in Versailles. Originally simple fare for the masses, it evolved into a beloved classic across Paris, especially in Les Halles, where cheese-topped, gratin-style servings became iconic. The dish gained international fame, eventually making its way to the U.S. in the 19th century and London\'s all-night "onion soup bars." What began as humble sustenance now charms as a gourmet staple worldwide.',
       },
       {
         itemId: 1,
