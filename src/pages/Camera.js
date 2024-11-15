@@ -147,10 +147,10 @@ const MobileMenu = () => {
               <a href="/menu/croque" style={linkStyle}>
                 Le Croque Madame
               </a>
-              <a href="/menu/toast" style={linkStyle}>
+              <a href="/menu/toast" style={linkStyle_broad}>
                 Toast Avocat et Tomate
               </a>
-              <a href="/menu/benedict" style={linkStyle}>
+              <a href="/menu/benedict" style={linkStyle_broad}>
                 Eggs Benedict
               </a>
               <a href="/menu/norwegian" style={linkStyle}>
