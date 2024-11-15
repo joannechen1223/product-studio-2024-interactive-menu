@@ -1,3 +1,29 @@
+import brandade from "../assets/food/Hors_doeuvres/brandade.webp";
+import croute from "../assets/food/Hors_doeuvres/croute.webp";
+import foie from "../assets/food/Hors_doeuvres/foie.webp";
+import granola from "../assets/food/Hors_doeuvres/granola.webp";
+import lyonnaise from "../assets/food/Hors_doeuvres/lyonnaise.webp";
+import nicoise from "../assets/food/Hors_doeuvres/nicoise.webp";
+import onion_soup from "../assets/food/Hors_doeuvres/onion_soup.webp";
+import perdu from "../assets/food/Hors_doeuvres/perdu.webp";
+import salade from "../assets/food/Hors_doeuvres/salade.webp";
+import saumon from "../assets/food/Hors_doeuvres/saumon.webp";
+import snails from "../assets/food/Hors_doeuvres/snails.webp";
+import tartare from "../assets/food/Hors_doeuvres/tartare.webp";
+import avocat from "../assets/food/oeufs/avocat.webp";
+import benedict from "../assets/food/oeufs/benedict.webp";
+import choix from "../assets/food/oeufs/choix.webp";
+import madame from "../assets/food/oeufs/madame.webp";
+import royale from "../assets/food/oeufs/royale.webp";
+import steak from "../assets/food/oeufs/steak.webp";
+import boucherie from "../assets/food/principaux/boucherie.webp";
+import boucherie_beyond from "../assets/food/principaux/boucherie_beyond.webp";
+import confit from "../assets/food/principaux/confit.webp";
+import sandwich from "../assets/food/principaux/sandwich.webp";
+import saumon_poele from "../assets/food/principaux/saumon_poele.webp";
+import steak_fries from "../assets/food/principaux/steak_fries.webp";
+import wagyu from "../assets/food/principaux/wagyu.webp";
+
 const menuData = [
   {
     groupId: 0,
@@ -21,7 +47,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Alcohol"],
         personalizationScore: 85,
-        imageUrls: [],
+        imageUrls: [onion_soup],
         aiReview:
           "The perfectly gratinéed cheese forms a golden canopy over the deep brown soup, creating that coveted moment when you break through the crust. The onions, caramelized to a deep mahogany, give the broth an incredible sweetness that balances its rich savory depth.",
       },
@@ -43,7 +69,7 @@ const menuData = [
         ],
         allergens: ["Dairy", "Alcohol"],
         personalizationScore: 72,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [snails],
         aiReview:
           "The escargots arrive perfectly presented in their traditional dimpled dish, each shell glistening with vibrant green-flecked butter. The aroma of garlic and herbs hits you immediately!",
       },
@@ -64,7 +90,7 @@ const menuData = [
         ],
         allergens: ["Raw Egg", "Raw Meat", "Fish"],
         personalizationScore: 68,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [tartare],
         aiReview:
           "The steak tartare is a testament to simplicity and quality ingredients. Hand-chopped to perfection, the beef maintains its integrity while being tender enough to melt on your tongue.",
       },
@@ -85,7 +111,7 @@ const menuData = [
         ],
         allergens: ["Dairy", "Alcohol"],
         personalizationScore: 78,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [foie],
         aiReview:
           "The mousse arrives looking like velvet on the plate, its pale pink hue hinting at its delicate nature. The texture is absolutely ethereal - lighter than air yet somehow rich and substantial.",
       },
@@ -107,7 +133,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Nuts", "Alcohol"],
         personalizationScore: 82,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [croute],
         aiReview:
           "This pâté en croûte is a masterpiece of technical skill and flavor balance. The golden-brown pastry shatters perfectly to reveal beautifully arranged layers of meat studded with vibrant pistachios.",
       },
@@ -128,7 +154,7 @@ const menuData = [
         ],
         allergens: ["Tree Nuts", "Coconut"],
         personalizationScore: 86,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [granola],
         aiReview:
           "This granola strikes the perfect balance between wholesome and indulgent. The clusters are substantial and satisfyingly crunchy, with a gorgeous golden hue that speaks to careful toasting.",
       },
@@ -149,7 +175,7 @@ const menuData = [
         ],
         allergens: ["Citrus"],
         personalizationScore: 92,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [salade],
         aiReview:
           "This salade de fruits is summer in a bowl! Each fruit is perfectly ripe and cut with precision – no afterthought fruit salad here.",
       },
@@ -171,7 +197,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy", "Gluten"],
         personalizationScore: 88,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [perdu],
         aiReview:
           "This pain perdu transforms humble bread into something magical. The exterior achieves that perfect golden-brown crispness while hiding an almost pudding-like interior.",
       },
@@ -193,7 +219,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Eggs"],
         personalizationScore: 89,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [nicoise],
         aiReview:
           "This Niçoise arrives as a beautiful composition, each element thoughtfully arranged rather than tossed together. The quality of ingredients shines.",
       },
@@ -215,7 +241,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Dairy", "Alcohol"],
         personalizationScore: 91,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [saumon],
         aiReview:
           "The salmon is cooked to absolute perfection - the flesh flakes gently with the mere touch of a fork while remaining lusciously moist.",
       },
@@ -237,7 +263,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Gluten", "Pork"],
         personalizationScore: 87,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [lyonnaise],
         aiReview:
           "This Salade Lyonnaise is a masterful balancing act. The frisée lettuce maintains its pleasant bite even under the warm vinaigrette, while the crispy lardons add bursts of smoky saltiness throughout.",
       },
@@ -259,7 +285,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Dairy"],
         personalizationScore: 83,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [brandade],
         aiReview:
           "This brandade achieves that perfect silky texture that only comes from patient stirring and proper technique. The balance between cod and potato is spot-on.",
       },
@@ -288,7 +314,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy", "Gluten", "Pork"],
         personalizationScore: 94,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [madame],
         aiReview:
           "The perfect Croque Madame is an architectural marvel, and this one delivers! The exterior is golden-brown and crispy, while beneath lies perfectly melted Gruyère that pulls into tempting strands.",
       },
@@ -309,7 +335,7 @@ const menuData = [
         ],
         allergens: ["Gluten"],
         personalizationScore: 88,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [avocat],
         aiReview:
           "This toast demonstrates that simplicity demands perfection. The bread is properly toasted to achieve that crucial crunch while maintaining a tender interior.",
       },
@@ -331,7 +357,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy", "Gluten", "Pork"],
         personalizationScore: 92,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [benedict],
         aiReview:
           "These eggs Benedict are the epitome of brunch perfection. The eggs are masterfully poached, their whites delicately set while the yolks remain luxuriously liquid.",
       },
@@ -353,7 +379,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy", "Gluten", "Fish"],
         personalizationScore: 93,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [royale],
         aiReview:
           "This Eggs Norwegian achieves that perfect harmony of luxury ingredients. The smoked salmon is silky and delicately smoky, neither too salty nor too oily.",
       },
@@ -374,7 +400,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy"],
         personalizationScore: 90,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [steak],
         aiReview:
           "This steak aux œufs exemplifies bistro cooking at its finest. The steak has that perfect caramelized crust while maintaining a rosy interior.",
       },
@@ -395,7 +421,7 @@ const menuData = [
         ],
         allergens: ["Eggs", "Dairy"],
         personalizationScore: 87,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [choix],
         aiReview:
           "This omelette is a masterpiece of technique - rolled into an elegant oval with a surface like silk, pale golden without a hint of browning.",
       },
@@ -422,7 +448,7 @@ const menuData = [
         ],
         allergens: ["Fish", "Dairy", "Alcohol"],
         personalizationScore: 89,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [saumon_poele],
         aiReview:
           "This salmon exhibits textbook technique - the skin is crackling-crisp while the flesh remains succulent and tender.",
       },
@@ -444,7 +470,7 @@ const menuData = [
         ],
         allergens: ["Duck"],
         personalizationScore: 95,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [confit],
         aiReview:
           "This duck confit is everything it should be - the meat falls effortlessly from the bone while maintaining its structure.",
       },
@@ -464,7 +490,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Mustard"],
         personalizationScore: 86,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [sandwich],
         aiReview:
           "This steak sandwich demonstrates French bistro cooking at its best. The meat is perfectly cooked and properly rested.",
       },
@@ -485,7 +511,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy", "Eggs"],
         personalizationScore: 91,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [boucherie],
         aiReview:
           "This burger showcases the marriage of French technique and American comfort food. The patty has that perfect outer crust while remaining juicy inside.",
       },
@@ -505,7 +531,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Soy"],
         personalizationScore: 84,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [boucherie_beyond],
         aiReview:
           "This burger brilliantly bridges traditional French bistro fare and modern plant-based cuisine. The Beyond patty is perfectly seared.",
       },
@@ -525,7 +551,7 @@ const menuData = [
         ],
         allergens: ["Gluten", "Dairy"],
         personalizationScore: 96,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [wagyu],
         aiReview:
           "This Wagyu burger is the epitome of luxury comfort food. The intensely marbled beef creates an incredibly juicy patty with that characteristic rich, buttery Wagyu flavor. Caramelized onions complement the meat's natural sweetness, while aged Gruyère adds nutty depth. The brioche bun, substantial enough to hold up to the juicy patty, adds its own buttery notes. Accompanied by perfectly crisp frites, it's a masterclass in elevating the humble burger to new heights!",
       },
@@ -546,7 +572,7 @@ const menuData = [
         ],
         allergens: ["Dairy"],
         personalizationScore: 93,
-        imageUrls: ["/api/placeholder/400/300"],
+        imageUrls: [steak_fries],
         aiReview:
           "This steak-frites delivers exactly what makes it a bistro classic. The steak bears a perfect crust while maintaining a rosy interior, enhanced by slowly melting herb butter.",
       },
