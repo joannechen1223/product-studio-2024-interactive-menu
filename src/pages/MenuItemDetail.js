@@ -7,6 +7,7 @@ import styled from "styled-components";
 import AllergenIcon from "../components/AllergenIcon";
 import HistoryModal from "../features/Menu/HistoryModal";
 import ReviewModal from "../features/Menu/ReviewModal";
+import { MenuRoute, MenuType } from "../features/Menu/constant";
 
 const Container = styled.div`
   padding: 50px 20px;
@@ -168,6 +169,16 @@ const MenuItemDetail = () => {
   const nationality = useSelector((state) => state.flavorProfile.nationality);
   const ingredientsDict = useSelector((state) => state.menu.ingredientsDict);
 
+  const menuType = useSelector((state) => state.menu.menuType);
+
+  const handleBackButtonClick = () => {
+    if (menuType === MenuType.PIC) {
+      navigate(MenuRoute[MenuType.PIC]);
+    } else {
+      navigate(MenuRoute[MenuType.LIST]);
+    }
+  };
+
   return (
     <Container>
       <ProfileContainer>
@@ -180,7 +191,7 @@ const MenuItemDetail = () => {
           <Icon
             name="close"
             size="big"
-            onClick={() => navigate("/menu")}
+            onClick={handleBackButtonClick}
             style={{ cursor: "pointer" }}
           />
         </HeaderContainer>

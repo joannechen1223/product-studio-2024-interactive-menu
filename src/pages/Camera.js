@@ -100,91 +100,91 @@ const MobileMenu = () => {
           <div style={{ position: "absolute", inset: 0 }}>
             {/* Hors D'oeuvres Left */}
             <div style={{ ...sectionStyle, top: "18%", left: "5%" }}>
-              <a href="/menu/soupe" style={linkStyle}>
+              <a href="#/menu-item/1" style={linkStyle}>
                 Soupe a l'Oignon
               </a>
-              <a href="/menu/escargots" style={linkStyle}>
+              <a href="#/menu-item/2" style={linkStyle}>
                 Escargots
               </a>
-              <a href="/menu/tartare" style={linkStyle}>
+              <a href="#/menu-item/3" style={linkStyle}>
                 Steak Tartare
               </a>
-              <a href="/menu/foie" style={linkStyle_broad}>
+              <a href="#/menu-item/4" style={linkStyle_broad}>
                 Mousse de Foie
               </a>
-              <a href="/menu/pate" style={linkStyle_broad}>
+              <a href="#/menu-item/5" style={linkStyle_broad}>
                 Pâté en Croûte
               </a>
-              <a href="/menu/granola" style={linkStyle_broad}>
+              <a href="#/menu-item/6" style={linkStyle_broad}>
                 Granola
               </a>
-              <a href="/menu/fruits" style={linkStyle}>
+              <a href="#/menu-item/7" style={linkStyle}>
                 Salade de Fruits
               </a>
             </div>
 
             {/* Hors D'oeuvres Center-Left */}
             <div style={{ ...sectionStyle, top: "22%", left: "27%" }}>
-              <a href="/menu/pain-perdu" style={linkStyle}>
+              <a href="#/menu-item/21" style={linkStyle}>
                 Pain Perdu
               </a>
-              <a href="/menu/salade-nicoise" style={linkStyle}>
+              <a href="#/menu-item/22" style={linkStyle}>
                 Salade Niçoise
               </a>
-              <a href="/menu/saumon-ecosse" style={linkStyle}>
+              <a href="#/menu-item/23" style={linkStyle}>
                 Saumon D'Ecosse
               </a>
-              <a href="/menu/salade-lyonnaise" style={linkStyle_broad}>
+              <a href="#/menu-item/24" style={linkStyle_broad}>
                 Salade Lyonnaise
               </a>
             </div>
 
             {/* Les Oeufs Center-Right */}
             <div style={{ ...sectionStyle, top: "29%", left: "53%" }}>
-              <a href="/menu/croque" style={linkStyle}>
+              <a href="#/menu-item/8" style={linkStyle}>
                 Le Croque Madame
               </a>
-              <a href="/menu/toast" style={linkStyle_broad}>
+              <a href="#/menu-item/9" style={linkStyle_broad}>
                 Toast Avocat et Tomate
               </a>
-              <a href="/menu/benedict" style={linkStyle_broad}>
+              <a href="#/menu-item/10" style={linkStyle_broad}>
                 Eggs Benedict
               </a>
-              <a href="/menu/norwegian" style={linkStyle}>
+              <a href="#/menu-item/11" style={linkStyle}>
                 Eggs Norwegian
               </a>
-              <a href="/menu/steak-oeufs" style={linkStyle}>
+              <a href="#/menu-item/12" style={linkStyle}>
                 Steak aux Oeufs
               </a>
-              <a href="/menu/omelette" style={linkStyle}>
+              <a href="#/menu-item/13" style={linkStyle}>
                 Omelette au Choix
               </a>
-              <a href="/menu/brandade" style={linkStyle}>
+              <a href="#/menu-item/25" style={linkStyle}>
                 Brandade de Morue
               </a>
             </div>
 
             {/* Plats Principaux Right */}
             <div style={{ ...sectionStyle, top: "17%", right: "10%" }}>
-              <a href="/menu/saumon" style={linkStyle}>
+              <a href="#/menu-item/14" style={linkStyle}>
                 Saumon à la Poêle
               </a>
-              <a href="/menu/canard" style={linkStyle}>
+              <a href="#/menu-item/15" style={linkStyle}>
                 Cuisse De Canard Confite
               </a>
-              <a href="/menu/sandwich" style={linkStyle_broad}>
+              <a href="#/menu-item/16" style={linkStyle_broad}>
                 Steak Sandwich
               </a>
-              <a href="/menu/burger" style={linkStyle_broad}>
+              <a href="#/menu-item/17" style={linkStyle_broad}>
                 Boucherie Burger
               </a>
-              <a href="/menu/beyond" style={linkStyle_broad}>
+              <a href="#/menu-item/18" style={linkStyle_broad}>
                 Boucherie Beyond Burger
               </a>
-              <a href="/menu/wagyu" style={linkStyle_broad}>
+              <a href="#/menu-item/19" style={linkStyle_broad}>
                 Wagyu Burger
               </a>
-              <a href="/menu/frites" style={linkStyle}>
+              <a href="#/menu-item/20" style={linkStyle}>
                 Steak Frites
               </a>
             </div>

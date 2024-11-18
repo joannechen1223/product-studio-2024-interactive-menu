@@ -1,6 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
+
+import { MenuRoute, MenuType } from "../features/Menu/constant";
+import { setMenuType } from "../features/Menu/menuSlice";
 
 const Container = styled.div`
   position: fixed;
@@ -36,20 +40,36 @@ const Button = styled.button`
   justify-content: center;
 `;
 
-const TopBar = ({ menuType }) => {
-  console.log("menuType", menuType);
+const TopBar = () => {
   const navigate = useNavigate();
+  const menuType = useSelector((state) => state.menu.menuType);
+  const dispatch = useDispatch();
+
+  const handleMenuTypeClick = (type) => {
+    dispatch(setMenuType(type));
+    navigate(MenuRoute[type]);
+  };
+
   return (
     <Container>
-      <Button active={menuType === "rec"} onClick={() => navigate("/rec")}>
+      <Button
+        active={menuType === MenuType.REC}
+        onClick={() => handleMenuTypeClick(MenuType.REC)}
+      >
         <Icon name="food" size="large" style={{ margin: "5px 0" }} />
         Rec
       </Button>
-      <Button active={menuType === "list"} onClick={() => navigate("/menu")}>
+      <Button
+        active={menuType === MenuType.LIST}
+        onClick={() => handleMenuTypeClick(MenuType.LIST)}
+      >
         <Icon name="clipboard list" size="large" style={{ margin: "5px 0" }} />
         List
       </Button>
-      <Button active={menuType === "pic"} onClick={() => navigate("/camera")}>
+      <Button
+        active={menuType === MenuType.PIC}
+        onClick={() => handleMenuTypeClick(MenuType.PIC)}
+      >
         <Icon name="picture" size="large" style={{ margin: "5px 0" }} />
         Pic
       </Button>

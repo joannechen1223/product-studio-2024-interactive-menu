@@ -131,9 +131,7 @@ const MenuItemCard = ({ item }) => {
         {imageUrls && <ItemImage src={imageUrls[0]} alt={itemName} />}
       </FlexRowContainer>
       <FlexRowReverseContainer>
-        <LearnMoreButton
-          onClick={() => navigate(`/menu-item-detail/${itemId}`)}
-        >
+        <LearnMoreButton onClick={() => navigate(`/menu-item/${itemId}`)}>
           Learn more
           <Icon name="chevron right" style={{ margin: "0 0 0 5px" }} />
         </LearnMoreButton>

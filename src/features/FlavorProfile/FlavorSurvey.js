@@ -9,7 +9,7 @@ import {
   LanguageList,
   SpiceTolerance,
   SpiceToleranceLabels,
-} from "./constants";
+} from "./constant";
 
 const Question = styled.div`
   color: #000000;

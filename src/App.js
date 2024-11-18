@@ -14,7 +14,7 @@ function App() {
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/camera" element={<Camera />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/menu-item-detail/:itemId" element={<MenuItemDetail />} />
+        <Route path="/menu-item/:itemId" element={<MenuItemDetail />} />
       </Routes>
     </Router>
   );

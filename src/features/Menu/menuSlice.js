@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { MenuType } from "./constant";
+
 import ingredientsDict from "../../data/ingredients";
 import { likePercentage } from "../../data/likePercentage";
 import menuData from "../../data/menu";
@@ -25,12 +27,18 @@ const getMenuItems = (menuData) => {
 const menuSlice = createSlice({
   name: "menu",
   initialState: {
+    menuType: MenuType.PIC,
     groups: getMenuGroups(menuData),
     items: getMenuItems(menuData),
     likePercentage: likePercentage,
     ingredientsDict: ingredientsDict,
   },
-  reducers: {},
+  reducers: {
+    setMenuType: (state, action) => {
+      state.menuType = action.payload;
+    },
+  },
 });
 
+export const { setMenuType } = menuSlice.actions;
 export default menuSlice.reducer;
