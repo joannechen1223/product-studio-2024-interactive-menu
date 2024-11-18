@@ -11,6 +11,16 @@ const ScrollableContainer = styled.div`
   flex: 1;
   overflow-y: auto;
   max-height: calc(100vh - 130px - 80px);
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 `;
 
 const MenuContent = styled.div`
@@ -22,13 +32,27 @@ const MenuContent = styled.div`
   width: 100%;
 `;
 
+const MenuWrapper = styled.div`
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-x: hidden;
+  scrollbar-width: none;
+`;
+
 const StyledMenu = styled(MenuContainer)`
   &.ui.secondary.pointing.menu {
     padding: 0 23px;
     border-bottom: 4px solid #c5c5c5 !important;
     margin-bottom: 0;
+    display: inline-flex;
+    width: auto !important;
 
-    /* Style for menu items */
     .item {
       font-family: Newsreader;
       color: #593c0a;
@@ -36,16 +60,21 @@ const StyledMenu = styled(MenuContainer)`
       font-weight: 500;
       margin: 0 16px;
       padding: 8px 0;
+      white-space: nowrap;
       border-bottom: 4px solid transparent !important;
-      margin-bottom: -4px !important; /* This makes the borders overlap */
+      margin-bottom: -4px !important;
 
-      /* Style for active state */
       &.active {
         color: #593c0a !important;
         border-bottom: 4px solid #593c0a !important;
       }
     }
   }
+`;
+
+const ContentWrapper = styled.div`
+  overflow-x: hidden; /* Add this */
+  width: 100%;
 `;
 
 const ListMenu = () => {
@@ -58,25 +87,29 @@ const ListMenu = () => {
       <div style={{ height: "130px", width: "100%" }}></div>
       <ScrollableContainer>
         <MenuContent>
-          <StyledMenu
-            pointing
-            secondary
-            style={{ minWidth: "100%", padding: "0 23px" }}
-          >
-            {groups.map((group) => (
-              <MenuItem
-                key={group.groupId}
-                content={group.groupName}
-                active={activeItem === group.groupId}
-                onClick={() => setActiveItem(group.groupId)}
-              />
-            ))}
-          </StyledMenu>
-          {groups
-            .find((item) => item.groupId === activeItem)
-            ?.itemIds.map((itemId) => (
-              <MenuItemCard key={itemId} item={items[itemId]} />
-            ))}
+          <MenuWrapper>
+            <StyledMenu
+              pointing
+              secondary
+              style={{ minWidth: "100%", padding: "0 23px" }}
+            >
+              {groups.map((group) => (
+                <MenuItem
+                  key={group.groupId}
+                  content={group.groupName}
+                  active={activeItem === group.groupId}
+                  onClick={() => setActiveItem(group.groupId)}
+                />
+              ))}
+            </StyledMenu>
+          </MenuWrapper>
+          <ContentWrapper>
+            {groups
+              .find((item) => item.groupId === activeItem)
+              ?.itemIds.map((itemId) => (
+                <MenuItemCard key={itemId} item={items[itemId]} />
+              ))}
+          </ContentWrapper>
         </MenuContent>
       </ScrollableContainer>
       <BottomBar />
