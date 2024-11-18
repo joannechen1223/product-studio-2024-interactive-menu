@@ -10,6 +10,14 @@ const Title = styled.div`
   margin: 20px 0;
 `;
 
+const SubTitle = styled.div`
+  color: #ffb433;
+  font-size: 18px;
+  line-height: 20.7px;
+  margin: 10px 0;
+  font-weight: 700;
+`;
+
 const Content = styled.div`
   font-size: 22px;
   line-height: 26px;
@@ -17,14 +25,15 @@ const Content = styled.div`
   font-weight: 400;
 `;
 
-const HistoryModal = ({ children, item }) => {
+const ReviewModal = ({ children, item }) => {
   const [open, setOpen] = useState(false);
   return (
     <Modal closeIcon open={open} setOpen={setOpen} trigger={children}>
-      <Title>History of {item.itemName}</Title>
-      <Content>{item.history || "No history available"}</Content>
+      <Title>How does it taste at this restaurant?</Title>
+      <SubTitle>Source: Yelp</SubTitle>
+      <Content>{item.aiReview}</Content>
     </Modal>
   );
 };
 
-export default HistoryModal;
+export default ReviewModal;

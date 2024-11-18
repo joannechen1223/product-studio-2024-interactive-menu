@@ -1,13 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 import menuImage from "../assets/menu.jpg";
 import BottomBar from "../components/BottomBar.js";
 import TopBar from "../components/TopBar.js";
 
 const MobileMenu = () => {
-  const navigate = useNavigate();
-
   const wrapperStyle = {
     margin: "auto",
     position: "relative",

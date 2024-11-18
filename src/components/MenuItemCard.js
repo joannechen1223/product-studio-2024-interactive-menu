@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Icon, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
-import dairyIcon from "../assets/icons/dairy.svg";
-import glutenIcon from "../assets/icons/gluten.svg";
-import nutsIcon from "../assets/icons/nuts.svg";
+import AllergenIcon from "./AllergenIcon";
+
 import ingredientsDict from "../data/ingredients";
 
 const FlexColumnContainer = styled.div`
@@ -82,11 +81,6 @@ const AllergensContainer = styled.div`
   gap: 5px;
 `;
 
-const AllergenIcon = styled.img`
-  width: 28px;
-  height: 28px;
-`;
-
 const LearnMoreButton = styled.button`
   background-color: transparent;
   border: 1px solid #000000;
@@ -111,12 +105,6 @@ const MenuItemCard = ({ item }) => {
     imageUrls,
     allergens,
   } = item;
-
-  const allergenIcons = {
-    gluten: glutenIcon,
-    dairy: dairyIcon,
-    nuts: nutsIcon,
-  };
 
   return (
     <FlexColumnContainer>
@@ -151,12 +139,9 @@ const MenuItemCard = ({ item }) => {
         </LearnMoreButton>
         {allergens && (
           <AllergensContainer>
-            {allergens.map(
-              (allergen) =>
-                allergenIcons[allergen] && (
-                  <AllergenIcon key={allergen} src={allergenIcons[allergen]} />
-                )
-            )}
+            {allergens.map((allergen) => (
+              <AllergenIcon allergen={allergen} size="28px" />
+            ))}
           </AllergensContainer>
         )}
       </FlexRowReverseContainer>

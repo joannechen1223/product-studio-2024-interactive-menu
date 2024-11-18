@@ -41,6 +41,8 @@ const menuData = [
         allergens: ["Gluten", "Dairy", "Alcohol"],
         personalizationScore: 85,
         imageUrls: [onion_soup],
+        history:
+          'French onion soup has been warming hearts since Roman times, with a rich history spanning from peasant food in medieval France to a royal favorite in Versailles. Originally simple fare for the masses, it evolved into a beloved classic across Paris, especially in Les Halles, where cheese-topped, gratin-style servings became iconic. The dish gained international fame, eventually making its way to the U.S. in the 19th century and London\'s all-night "onion soup bars." What began as humble sustenance now charms as a gourmet staple worldwide.',
         aiReview:
           "The perfectly gratinéed cheese forms a golden canopy over the deep brown soup, creating that coveted moment when you break through the crust. The onions, caramelized to a deep mahogany, give the broth an incredible sweetness that balances its rich savory depth.",
       },

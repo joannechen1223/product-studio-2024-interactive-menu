@@ -4,10 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
-import dairyIcon from "../assets/icons/dairy.svg";
-import glutenIcon from "../assets/icons/gluten.svg";
-import nutsIcon from "../assets/icons/nuts.svg";
+import AllergenIcon from "../components/AllergenIcon";
 import HistoryModal from "../features/Menu/HistoryModal";
+import ReviewModal from "../features/Menu/ReviewModal";
 
 const Container = styled.div`
   padding: 50px 20px;
@@ -139,10 +138,6 @@ const AllergenTitle = styled.div`
   margin-right: 10px;
 `;
 
-const AllergenIcon = styled.img`
-  height: 33.6px;
-`;
-
 const AdditionalInfoButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -172,12 +167,6 @@ const MenuItemDetail = () => {
   const language = useSelector((state) => state.flavorProfile.language);
   const nationality = useSelector((state) => state.flavorProfile.nationality);
   const ingredientsDict = useSelector((state) => state.menu.ingredientsDict);
-
-  const allergenIcons = {
-    gluten: glutenIcon,
-    dairy: dairyIcon,
-    nuts: nutsIcon,
-  };
 
   return (
     <Container>
@@ -223,12 +212,9 @@ const MenuItemDetail = () => {
         </IngredientsContainer>
         <AllergenContainer>
           <AllergenTitle>Allergens: </AllergenTitle>
-          {item.allergens.map(
-            (allergen) =>
-              allergenIcons[allergen] && (
-                <AllergenIcon src={allergenIcons[allergen]} />
-              )
-          )}
+          {item.allergens.map((allergen) => (
+            <AllergenIcon allergen={allergen} size="33.6px" />
+          ))}
         </AllergenContainer>
       </InfoContainer>
       <AdditionalInfoButtonsContainer>
@@ -240,9 +226,11 @@ const MenuItemDetail = () => {
             History
           </AdditionalInfoButton>
         </HistoryModal>
-        <AdditionalInfoButton bgColor="#f6f5ff" width="45%">
-          Reviews
-        </AdditionalInfoButton>
+        <ReviewModal item={item}>
+          <AdditionalInfoButton bgColor="#f6f5ff" width="45%">
+            Reviews
+          </AdditionalInfoButton>
+        </ReviewModal>
       </AdditionalInfoButtonsContainer>
     </Container>
   );

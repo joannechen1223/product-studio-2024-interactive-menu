@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
@@ -15,6 +16,7 @@ const Container = styled.div`
   border-radius: 66px;
   align-items: center;
   justify-content: space-around;
+  z-index: 1000;
 `;
 
 const Button = styled.button`
@@ -35,17 +37,19 @@ const Button = styled.button`
 `;
 
 const TopBar = ({ menuType }) => {
+  console.log("menuType", menuType);
+  const navigate = useNavigate();
   return (
     <Container>
-      <Button active={menuType === "rec"}>
+      <Button active={menuType === "rec"} onClick={() => navigate("/rec")}>
         <Icon name="food" size="large" style={{ margin: "5px 0" }} />
         Rec
       </Button>
-      <Button active={menuType === "list"}>
+      <Button active={menuType === "list"} onClick={() => navigate("/menu")}>
         <Icon name="clipboard list" size="large" style={{ margin: "5px 0" }} />
         List
       </Button>
-      <Button active={menuType === "pic"}>
+      <Button active={menuType === "pic"} onClick={() => navigate("/camera")}>
         <Icon name="picture" size="large" style={{ margin: "5px 0" }} />
         Pic
       </Button>
