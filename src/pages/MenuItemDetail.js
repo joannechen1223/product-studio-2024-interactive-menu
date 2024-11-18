@@ -5,6 +5,7 @@ import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
 import AllergenIcon from "../components/AllergenIcon";
+import FlavorModal from "../features/Menu/FlavorModal";
 import HistoryModal from "../features/Menu/HistoryModal";
 import ReviewModal from "../features/Menu/ReviewModal";
 import { MenuRoute, MenuType } from "../features/Menu/constant";
@@ -229,9 +230,11 @@ const MenuItemDetail = () => {
         </AllergenContainer>
       </InfoContainer>
       <AdditionalInfoButtonsContainer>
-        <AdditionalInfoButton bgColor="#fffff5" width="100%">
-          Flavor
-        </AdditionalInfoButton>
+        <FlavorModal item={item}>
+          <AdditionalInfoButton bgColor="#fffff5" width="100%">
+            Flavor
+          </AdditionalInfoButton>
+        </FlavorModal>
         <HistoryModal item={item}>
           <AdditionalInfoButton bgColor="#f5fffc" width="45%">
             History

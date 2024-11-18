@@ -27,6 +27,16 @@ export const DietStyleLabels = {
   [DietStyle.PESCATARIAN]: "Pescatarian",
 };
 
-export const CountryList = ["United States", "Canada", "Mexico"];
+export const Country = {
+  UnitedStates: "United States",
+  Canada: "Canada",
+  Mexico: "Mexico",
+};
+
+export const CountryList = [
+  Country.UnitedStates,
+  Country.Canada,
+  Country.Mexico,
+];
 
 export const LanguageList = ["English", "Spanish", "Mandarin"];
