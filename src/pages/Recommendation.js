@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import aiPoweredIcon from "../assets/icons/aiPowered.svg";
@@ -109,9 +110,29 @@ const Recommendation = () => {
   const items = useSelector((state) => state.menu.items);
   const recType = useSelector((state) => state.recommendation.recType);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleRecTypeClick = (type) => {
     dispatch(setRecType(type));
+    if (type === RecType.AI_POWERED) {
+      navigate("/personalize");
+    }
+  };
+
+  const handleScroll = (event) => {
+    const container = event.target;
+    const scrollPosition = container.scrollLeft;
+    const firstCard = container.firstElementChild;
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const gap = 20; // This should match the gap in your styled component
+    const totalCardWidth = cardWidth + gap;
+
+    const newIndex = Math.round(scrollPosition / totalCardWidth);
+    setSelectedIndex(newIndex);
   };
 
   return (
@@ -161,14 +182,14 @@ const Recommendation = () => {
                 />
               )}
             </RecTypeTag>
-            <MenuItemDetailCardContainer>
+            <MenuItemDetailCardContainer onScroll={handleScroll}>
               {recommendList.map((itemId) => (
                 <MenuItemDetailCard item={items[itemId]} backButton={false} />
               ))}
             </MenuItemDetailCardContainer>
             <DotsContainer>
               {recommendList.map((itemId, index) => (
-                <Dot selected={index === 0} />
+                <Dot selected={index === selectedIndex} />
               ))}
             </DotsContainer>
           </Container>

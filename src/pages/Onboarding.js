@@ -72,7 +72,7 @@ const Onboarding = () => {
     } else if (progress === 2 && nationality !== null && language !== null) {
       dispatch(setNationality(nationality));
       dispatch(setLanguage(language));
-      navigate("/camera");
+      navigate("/rec");
     }
   };
 

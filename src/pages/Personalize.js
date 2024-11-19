@@ -65,7 +65,7 @@ const IconContainer = styled.div`
   border-radius: 12px;
 `;
 
-const Home = () => {
+const Personalize = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedFlavors = useSelector(
@@ -87,7 +87,7 @@ const Home = () => {
       navigate("/onboarding");
     } else {
       // Handle skip logic if needed
-      navigate("/camera");
+      navigate("/rec");
     }
   };
 
@@ -124,4 +124,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Personalize;
