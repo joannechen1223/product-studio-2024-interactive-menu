@@ -4,24 +4,10 @@ import { Menu as MenuContainer, MenuItem } from "semantic-ui-react";
 import styled from "styled-components";
 
 import BottomBar from "../components/BottomBar";
+import { HorizontalLine } from "../components/HorizontalLine";
 import MenuItemCard from "../components/MenuItemCard";
+import { ScrollableContainer } from "../components/ScrollableContainer";
 import TopBar from "../components/TopBar";
-
-const ScrollableContainer = styled.div`
-  flex: 1;
-  overflow-y: auto;
-  max-height: calc(100vh - 130px - 80px);
-
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-`;
 
 const MenuContent = styled.div`
   display: flex;
@@ -83,7 +69,7 @@ const ListMenu = () => {
 
   return (
     <>
-      <TopBar menuType="list" />
+      <TopBar />
       <div style={{ height: "130px", width: "100%" }}></div>
       <ScrollableContainer>
         <MenuContent>
@@ -107,7 +93,10 @@ const ListMenu = () => {
             {groups
               .find((item) => item.groupId === activeItem)
               ?.itemIds.map((itemId) => (
-                <MenuItemCard key={itemId} item={items[itemId]} />
+                <>
+                  <MenuItemCard key={itemId} item={items[itemId]} />
+                  <HorizontalLine />
+                </>
               ))}
           </ContentWrapper>
         </MenuContent>

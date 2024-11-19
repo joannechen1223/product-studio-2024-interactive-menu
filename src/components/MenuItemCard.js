@@ -13,7 +13,6 @@ const FlexColumnContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-bottom: 1px solid #bcae97;
 `;
 
 const FlexRowContainer = styled.div`
@@ -114,7 +113,7 @@ const MenuItemCard = ({ item }) => {
           <ItemTranslation>{translationName}</ItemTranslation>
           <Ingredients>
             {ingredients.map((ingredient, index) => (
-              <Ingredient key={ingredient}>
+              <Ingredient key={index}>
                 {ingredient}
                 {ingredientsDict[ingredient] && (
                   <Icon

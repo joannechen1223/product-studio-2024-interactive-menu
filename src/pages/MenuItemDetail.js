@@ -157,6 +157,7 @@ const AdditionalInfoButton = styled.button`
   border-radius: 26px;
   padding: 0;
   margin-top: 20px;
+  color: #000000;
 `;
 
 const MenuItemDetail = () => {
@@ -175,6 +176,8 @@ const MenuItemDetail = () => {
   const handleBackButtonClick = () => {
     if (menuType === MenuType.PIC) {
       navigate(MenuRoute[MenuType.PIC]);
+    } else if (menuType === MenuType.REC) {
+      navigate(MenuRoute[MenuType.REC]);
     } else {
       navigate(MenuRoute[MenuType.LIST]);
     }

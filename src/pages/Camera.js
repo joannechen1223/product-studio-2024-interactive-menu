@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Icon } from "semantic-ui-react";
 
 import menuImage from "../assets/menu.jpg";
 import BottomBar from "../components/BottomBar.js";
@@ -85,7 +86,11 @@ const MobileMenu = () => {
     top: "81%",
     color: "#FFFFFF",
     left: "10%",
+    display: "flex",
+    gap: "10px",
   };
+
+  const [tipVisible, setTipVisible] = useState(true);
 
   return (
     <div style={mainContainerStyle}>
@@ -94,10 +99,10 @@ const MobileMenu = () => {
           <img src={menuImage} alt="Boucherie Menu" style={imageStyle} />
 
           <div style={{ position: "absolute", inset: 0, width: "100%" }}>
-            <TopBar menuType="pic" />
+            <TopBar />
           </div>
 
-          <div style={{ position: "absolute", inset: 0 }}>
+          <div style={{ position: "absolute", inset: 0, paddingBottom: "10%" }}>
             {/* Hors D'oeuvres Left */}
             <div style={{ ...sectionStyle, top: "18%", left: "5%" }}>
               <a href="#/menu-item/1" style={linkStyle}>
@@ -189,11 +194,18 @@ const MobileMenu = () => {
               </a>
             </div>
 
-            <div style={{ ...tipStyle }}>
-              <span style={{ margin: "auto" }}>
-                Tip: Click on the highlighted areas to view individual items
-              </span>
-            </div>
+            {tipVisible && (
+              <div style={{ ...tipStyle }}>
+                <span style={{ margin: "auto" }}>
+                  Tip: Click on the highlighted areas to view individual items
+                </span>
+                <Icon
+                  name="close"
+                  onClick={() => setTipVisible(false)}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            )}
 
             <BottomBar />
           </div>
