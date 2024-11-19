@@ -3,25 +3,25 @@ const ingredientsDict = {
     explanation:
       "Croutons are a type of bread that is typically made from stale bread that has been toasted and then cubed. They are often seasoned with herbs and spices, such as garlic, onion, and parsley, and are used as a garnish or as a topping for salads or soups.",
     imageUrl:
-      "https://www.simplyrecipes.com/thmb/cmCIHeOeuV153LujEdY6tZK_Mb8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-French-Onion-Soup-LEAD-06-00d3b5bcdf4a4261b89e1be4aedf90f3.jpg",
+      "https://theplantbasedschool.com/wp-content/uploads/2022/06/Air-fryer-Croutons-8.jpg",
   },
-  Gruyere: {
+  "Gruyère Cheese": {
     explanation:
       "Gruyere is a type of cheese that is typically made from cow's milk. It is a hard, yellow cheese that is often used as a topping for salads or soups.",
     imageUrl:
-      "https://www.simplyrecipes.com/thmb/cmCIHeOeuV153LujEdY6tZK_Mb8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-French-Onion-Soup-LEAD-06-00d3b5bcdf4a4261b89e1be4aedf90f3.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/d/d9/Gruyere_alpage_th_wa.jpg",
   },
-  "lemon garlic": {
+  Parsley: {
     explanation:
-      "Lemon garlic is a combination of lemon and garlic that is often used as a seasoning for meats or as a garnish for salads or soups.",
+      "Parsley is a type of herb that is often used as a garnish or as a seasoning for meats or vegetables.",
     imageUrl:
-      "https://www.simplyrecipes.com/thmb/cmCIHeOeuV153LujEdY6tZK_Mb8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-French-Onion-Soup-LEAD-06-00d3b5bcdf4a4261b89e1be4aedf90f3.jpg",
+      "https://i5.walmartimages.com/seo/Fresh-Italian-Parsley-Bunch-Each_b1d1dc1a-80e9-4aeb-a9be-9be1beab755b.a34fe5748c746fe1815dfd5c9a624039.jpeg",
   },
-  "cherry confiture": {
+  "Foie Gras Mousse": {
     explanation:
-      "Cherry confiture is a type of jam that is made from cherries and sugar. It is often used as a topping for desserts or as a filling for pastries.",
+      "Foie Gras Mousse is a type of pate that is made from duck or goose liver.",
     imageUrl:
-      "https://www.simplyrecipes.com/thmb/cmCIHeOeuV153LujEdY6tZK_Mb8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-French-Onion-Soup-LEAD-06-00d3b5bcdf4a4261b89e1be4aedf90f3.jpg",
+      "https://www.gourmetfoodstore.com/images/product/large/terroirs-d-antan-duck-foie-gras-mousse-with-port-wine-pate-all-natural-12466-1s-2466.jpg",
   },
 };
 

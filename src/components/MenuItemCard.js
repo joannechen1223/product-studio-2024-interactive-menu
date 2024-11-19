@@ -6,6 +6,7 @@ import styled from "styled-components";
 import AllergenIcon from "./AllergenIcon";
 
 import ingredientsDict from "../data/ingredients";
+import IngredientModal from "../features/Menu/IngredientModal";
 
 const FlexColumnContainer = styled.div`
   padding: 20px 33px;
@@ -116,11 +117,13 @@ const MenuItemCard = ({ item }) => {
               <Ingredient key={index}>
                 {ingredient}
                 {ingredientsDict[ingredient] && (
-                  <Icon
-                    name="search"
-                    size="small"
-                    style={{ color: "#ffac1d", marginLeft: "5px" }}
-                  />
+                  <IngredientModal ingredientName={ingredient}>
+                    <Icon
+                      name="search"
+                      size="small"
+                      style={{ color: "#ffac1d", marginLeft: "5px" }}
+                    />
+                  </IngredientModal>
                 )}
                 {index !== ingredients.length - 1 && ","}
               </Ingredient>

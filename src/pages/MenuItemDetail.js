@@ -7,6 +7,7 @@ import styled from "styled-components";
 import AllergenIcon from "../components/AllergenIcon";
 import FlavorModal from "../features/Menu/FlavorModal";
 import HistoryModal from "../features/Menu/HistoryModal";
+import IngredientModal from "../features/Menu/IngredientModal";
 import ReviewModal from "../features/Menu/ReviewModal";
 import { MenuRoute, MenuType } from "../features/Menu/constant";
 
@@ -215,11 +216,13 @@ const MenuItemDetail = () => {
             <>
               <Ingredient>{ingredient}</Ingredient>
               {ingredientsDict[ingredient] && (
-                <Icon
-                  name="search"
-                  size="large"
-                  style={{ color: "#ffac1d", marginLeft: "5px" }}
-                />
+                <IngredientModal ingredientName={ingredient}>
+                  <Icon
+                    name="search"
+                    size="large"
+                    style={{ color: "#ffac1d", marginLeft: "5px" }}
+                  />
+                </IngredientModal>
               )}
               {index !== item.ingredients.length - 1 && ","}
             </>
