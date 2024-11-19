@@ -108,7 +108,6 @@ const Recommendation = () => {
   const recommendList = useSelector(
     (state) => state.recommendation.recommendList
   );
-  console.log(recommendList);
   const items = useSelector((state) => state.menu.items);
   const recType = useSelector((state) => state.recommendation.recType);
   const dispatch = useDispatch();
