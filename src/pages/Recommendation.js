@@ -6,6 +6,7 @@ import styled from "styled-components";
 import aiPoweredIcon from "../assets/icons/aiPowered.svg";
 import BottomBar from "../components/BottomBar";
 import MenuItemDetailCard from "../components/MenuItemDetailCard";
+import { ScrollableContainer } from "../components/ScrollableContainer";
 import TopBar from "../components/TopBar";
 import { RecType } from "../features/Recommendation/constant";
 import { setRecType } from "../features/Recommendation/recommendationSlice";
@@ -38,6 +39,7 @@ const RecTypeButton = styled.button`
   border-radius: 43px;
   align-self: center;
   font-family: Adamina;
+  color: #000000;
 `;
 
 const TopBarBackground = styled.div`
@@ -162,37 +164,41 @@ const Recommendation = () => {
         <>
           <TopBar color="white" />
           <TopBarBackground />
-          <Container>
-            <RecTypeTag
-              recType={recType}
-              onClick={() =>
-                handleRecTypeClick(
-                  recType === RecType.TRADITIONAL
-                    ? RecType.AI_POWERED
-                    : RecType.TRADITIONAL
-                )
-              }
-            >
-              {recType === RecType.TRADITIONAL ? "Traditional recs" : "AI recs"}
-              {recType === RecType.AI_POWERED && (
-                <img
-                  src={aiPoweredIcon}
-                  alt="ai powered"
-                  style={{ marginLeft: "10px" }}
-                />
-              )}
-            </RecTypeTag>
-            <MenuItemDetailCardContainer onScroll={handleScroll}>
-              {recommendList.map((itemId) => (
-                <MenuItemDetailCard item={items[itemId]} backButton={false} />
-              ))}
-            </MenuItemDetailCardContainer>
-            <DotsContainer>
-              {recommendList.map((itemId, index) => (
-                <Dot selected={index === selectedIndex} />
-              ))}
-            </DotsContainer>
-          </Container>
+          <ScrollableContainer>
+            <Container>
+              <RecTypeTag
+                recType={recType}
+                onClick={() =>
+                  handleRecTypeClick(
+                    recType === RecType.TRADITIONAL
+                      ? RecType.AI_POWERED
+                      : RecType.TRADITIONAL
+                  )
+                }
+              >
+                {recType === RecType.TRADITIONAL
+                  ? "Traditional recs"
+                  : "AI recs"}
+                {recType === RecType.AI_POWERED && (
+                  <img
+                    src={aiPoweredIcon}
+                    alt="ai powered"
+                    style={{ marginLeft: "10px" }}
+                  />
+                )}
+              </RecTypeTag>
+              <MenuItemDetailCardContainer onScroll={handleScroll}>
+                {recommendList.map((itemId) => (
+                  <MenuItemDetailCard item={items[itemId]} backButton={false} />
+                ))}
+              </MenuItemDetailCardContainer>
+              <DotsContainer>
+                {recommendList.map((itemId, index) => (
+                  <Dot selected={index === selectedIndex} />
+                ))}
+              </DotsContainer>
+            </Container>
+          </ScrollableContainer>
         </>
       )}
       <BottomBar />
