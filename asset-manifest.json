@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/product-studio-2024-interactive-menu/static/css/main.525cbc66.css",
-    "main.js": "/product-studio-2024-interactive-menu/static/js/main.95255fb4.js",
+    "main.js": "/product-studio-2024-interactive-menu/static/js/main.bcf56bc4.js",
     "static/js/453.194923b3.chunk.js": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js",
     "static/media/menu.jpg": "/product-studio-2024-interactive-menu/static/media/menu.28f9cbf4a8f7623c60da.jpg",
     "static/media/brand-icons.svg": "/product-studio-2024-interactive-menu/static/media/brand-icons.6729d29753e000c17489.svg",
@@ -10,6 +10,7 @@
     "static/media/nuts.svg": "/product-studio-2024-interactive-menu/static/media/nuts.39107b8e0badf305ea926f59cab490f4.svg",
     "static/media/gluten.svg": "/product-studio-2024-interactive-menu/static/media/gluten.f63d30507a0857baaaad867de97becc6.svg",
     "static/media/royale.webp": "/product-studio-2024-interactive-menu/static/media/royale.5c6daf742ea140f9a068.webp",
+    "static/media/usFlag.svg": "/product-studio-2024-interactive-menu/static/media/usFlag.f0e317331230c064e8d050dfc5f6c9f0.svg",
     "static/media/avocat.webp": "/product-studio-2024-interactive-menu/static/media/avocat.b6defdb1441af7a9c825.webp",
     "static/media/steak.webp": "/product-studio-2024-interactive-menu/static/media/steak.1ca8f90259eeb2f144c9.webp",
     "static/media/outline-icons.svg": "/product-studio-2024-interactive-menu/static/media/outline-icons.9c4845b4b41ef40a22fa.svg",
@@ -50,11 +51,11 @@
     "static/media/brandade.webp": "/product-studio-2024-interactive-menu/static/media/brandade.0365e659992bcc8737e8.webp",
     "index.html": "/product-studio-2024-interactive-menu/index.html",
     "main.525cbc66.css.map": "/product-studio-2024-interactive-menu/static/css/main.525cbc66.css.map",
-    "main.95255fb4.js.map": "/product-studio-2024-interactive-menu/static/js/main.95255fb4.js.map",
+    "main.bcf56bc4.js.map": "/product-studio-2024-interactive-menu/static/js/main.bcf56bc4.js.map",
     "453.194923b3.chunk.js.map": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.525cbc66.css",
-    "static/js/main.95255fb4.js"
+    "static/js/main.bcf56bc4.js"
   ]
 }
