@@ -1,59 +1,179 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
+import aiPoweredIcon from "../assets/icons/aiPowered.svg";
 import BottomBar from "../components/BottomBar";
-import MenuItemCard from "../components/MenuItemCard";
-import { ScrollableContainer } from "../components/ScrollableContainer";
+import MenuItemDetailCard from "../components/MenuItemDetailCard";
 import TopBar from "../components/TopBar";
+import { RecType } from "../features/Recommendation/constant";
+import { setRecType } from "../features/Recommendation/recommendationSlice";
 
-const RankContainer = styled.div`
+const RecTypeTitle = styled.div`
+  font-size: 25px;
+  line-height: 34.05px;
+  font-weight: 400;
+  margin-top: 130px;
+  font-family: Adamina;
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 80px;
+`;
+
+const RecTypeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+const RecTypeButton = styled.button`
+  font-size: 20px;
+  line-height: 27.04px;
+  font-weight: 400;
+  border: 1px solid #000000;
+  background-color: transparent;
+  height: 68px;
+  width: 80%;
+  border-radius: 43px;
+  align-self: center;
+  font-family: Adamina;
+`;
+
+const TopBarBackground = styled.div`
+  height: 130px;
+  width: 100%;
+  background-color: ${(props) =>
+    props.color === "white" ? "#ffffff" : "#f9f7ec"};
+`;
+
+const Container = styled.div`
+  padding: 20px 20px;
+  background-color: #f9f7ec;
+  min-height: calc(100vh - 130px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const MenuItemDetailCardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  & > * {
+    width: 100%; // Adjust this value as needed
+    flex-shrink: 0; // Prevents the cards from shrinking
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
 `;
 
-const RankLine = styled.div`
-  height: 1px;
-  width: 45%;
-  background-color: #bcae97;
-`;
-
-const RankText = styled.div`
+const RecTypeTag = styled.button`
   font-size: 17px;
+  line-height: 20px;
   font-weight: 700;
-  background-color: #bfbfbf;
-  color: #fff;
-  width: 28px;
-  height: 28px;
-  border-radius: 14px;
-  text-align: center;
-  line-height: 28px;
+  color: #ffffff;
+  background-color: ${(props) =>
+    props.recType === RecType.TRADITIONAL ? "#6c6c6c" : "#0DCDAD"};
+  border: none;
+  border-radius: 26px;
+  padding: 0;
+
+  align-self: flex-end;
+  padding: 7px 15px;
+`;
+
+const DotsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-self: center;
+`;
+
+const Dot = styled.div`
+  width: ${(props) => (props.selected ? "38px" : "8px")};
+  height: 8px;
+  border-radius: 4px;
+  background-color: ${(props) => (props.selected ? "#000000" : "#b8b8b8")};
 `;
 
 const Recommendation = () => {
   const recommendList = useSelector(
     (state) => state.recommendation.recommendList
   );
+  console.log(recommendList);
   const items = useSelector((state) => state.menu.items);
+  const recType = useSelector((state) => state.recommendation.recType);
+  const dispatch = useDispatch();
+
+  const handleRecTypeClick = (type) => {
+    dispatch(setRecType(type));
+  };
 
   return (
     <>
-      <TopBar />
-      <div style={{ height: "130px", width: "100%" }}></div>
-      <ScrollableContainer>
-        {recommendList.map((itemId, index) => (
-          <>
-            <RankContainer>
-              <RankLine />
-              <RankText>{index + 1}</RankText>
-              <RankLine />
-            </RankContainer>
-            <MenuItemCard key={itemId} item={items[itemId]} />
-          </>
-        ))}
-      </ScrollableContainer>
+      {recType === null && (
+        <>
+          <TopBar />
+          <TopBarBackground color="white" />
+          <RecTypeTitle>
+            Choose your preferred type of recommendation
+          </RecTypeTitle>
+          <RecTypeContainer>
+            <RecTypeButton
+              onClick={() => handleRecTypeClick(RecType.TRADITIONAL)}
+            >
+              Traditional
+            </RecTypeButton>
+            <RecTypeButton
+              onClick={() => handleRecTypeClick(RecType.AI_POWERED)}
+            >
+              AI powered
+            </RecTypeButton>
+          </RecTypeContainer>
+        </>
+      )}
+      {recType !== null && (
+        <>
+          <TopBar color="white" />
+          <TopBarBackground />
+          <Container>
+            <RecTypeTag
+              recType={recType}
+              onClick={() =>
+                handleRecTypeClick(
+                  recType === RecType.TRADITIONAL
+                    ? RecType.AI_POWERED
+                    : RecType.TRADITIONAL
+                )
+              }
+            >
+              {recType === RecType.TRADITIONAL ? "Traditional recs" : "AI recs"}
+              {recType === RecType.AI_POWERED && (
+                <img
+                  src={aiPoweredIcon}
+                  alt="arrow right"
+                  style={{ marginLeft: "10px" }}
+                />
+              )}
+            </RecTypeTag>
+            <MenuItemDetailCardContainer>
+              {recommendList.map((itemId) => (
+                <MenuItemDetailCard item={items[itemId]} backButton={false} />
+              ))}
+            </MenuItemDetailCardContainer>
+            <DotsContainer>
+              {recommendList.map((itemId, index) => (
+                <Dot selected={index === 0} />
+              ))}
+            </DotsContainer>
+          </Container>
+        </>
+      )}
       <BottomBar />
     </>
   );

@@ -14,7 +14,7 @@ const Container = styled.div`
   margin: 0 24px;
   display: flex;
   flex-direction: row;
-  background: #f9f7ec;
+  background: ${(props) => (props.color === "white" ? "#ffffff" : "#f9f7ec")};
   height: 64px;
   margin-top: 47px;
   border-radius: 66px;
@@ -40,7 +40,7 @@ const Button = styled.button`
   justify-content: center;
 `;
 
-const TopBar = () => {
+const TopBar = ({ color }) => {
   const navigate = useNavigate();
   const menuType = useSelector((state) => state.menu.menuType);
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const TopBar = () => {
   };
 
   return (
-    <Container>
+    <Container color={color}>
       <Button
         active={menuType === MenuType.REC}
         onClick={() => handleMenuTypeClick(MenuType.REC)}
