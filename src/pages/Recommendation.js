@@ -19,7 +19,6 @@ const RecTypeTitle = styled.div`
   font-family: Adamina;
   text-align: center;
   padding: 0 20px;
-  margin-bottom: 80px;
 `;
 
 const RecTypeContainer = styled.div`
@@ -50,7 +49,7 @@ const TopBarBackground = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 20px 20px;
+  padding: 20px 20px 100px 20px;
   background-color: #f9f7ec;
   min-height: calc(100vh - 130px);
   display: flex;

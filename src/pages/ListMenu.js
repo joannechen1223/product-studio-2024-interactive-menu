@@ -16,6 +16,7 @@ const MenuContent = styled.div`
   margin-top: 130px;
   margin: 0 auto;
   width: 100%;
+  margin-bottom: 80px;
 `;
 
 const MenuWrapper = styled.div`
