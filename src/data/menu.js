@@ -47,6 +47,20 @@ const menuData = [
         ],
         history:
           'French onion soup has been warming hearts since Roman times, with a rich history spanning from peasant food in medieval France to a royal favorite in Versailles. Originally simple fare for the masses, it evolved into a beloved classic across Paris, especially in Les Halles, where cheese-topped, gratin-style servings became iconic. The dish gained international fame, eventually making its way to the U.S. in the 19th century and London\'s all-night "onion soup bars." What began as humble sustenance now charms as a gourmet staple worldwide.',
+        reviews: [
+          {
+            source: "Yelp",
+            username: "John Doe",
+            review:
+              "The perfectly gratinéed cheese forms a golden canopy over the deep brown soup, creating that coveted moment when you break through the crust. The onions, caramelized to a deep mahogany, give the broth an incredible sweetness that balances its rich savory depth.",
+          },
+          {
+            source: "TripAdvisor",
+            username: "Anonymous",
+            review:
+              "The soup is rich and flavorful, with a good balance of sweetness and saltiness from the onions and cheese. The crust is perfectly browned and crunchy, adding a nice texture to the dish.",
+          },
+        ],
         aiReview:
           "The perfectly gratinéed cheese forms a golden canopy over the deep brown soup, creating that coveted moment when you break through the crust. The onions, caramelized to a deep mahogany, give the broth an incredible sweetness that balances its rich savory depth.",
       },
@@ -70,7 +84,21 @@ const menuData = [
         personalizationScore: 72,
         imageUrls: [snails],
         history:
-          "Escargots à la Bourguignonne is a classic French dish that has been enjoyed for centuries. The dish is typically served with a generous amount of garlic-herb butter and a generous amount of parsley. The escargots are typically cooked in a pan with butter and garlic, and then served with a generous amount of parsley. The dish is typically served with a generous amount of bread to soak up the garlic-herb butter.",
+          "Escargots à la Bourguignonne is a classic French dish that has been enjoyed for centuries. The dish is typically served with a generous amount of garlic-herb butter and a generous amount of parsley. The escargots are typically cooked in a pan with butter and garlic, and then served with a generous amount of bread to soak up the garlic-herb butter.",
+        reviews: [
+          {
+            source: "Yelp",
+            username: "John Doe",
+            review:
+              "The escargots are cooked to perfection, with a tender texture and a rich garlic-herb butter flavor. The bread is perfectly toasted to soak up the butter, and the parsley adds a nice touch of freshness.",
+          },
+          {
+            source: "TripAdvisor",
+            username: "Anonymous",
+            review:
+              "The escargots are cooked to perfection, with a tender texture and a rich garlic-herb butter flavor. The bread is perfectly toasted to soak up the butter, and the parsley adds a nice touch of freshness.",
+          },
+        ],
         aiReview:
           "The escargots arrive perfectly presented in their traditional dimpled dish, each shell glistening with vibrant green-flecked butter. The aroma of garlic and herbs hits you immediately!",
       },

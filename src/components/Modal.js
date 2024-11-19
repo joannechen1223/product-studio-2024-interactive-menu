@@ -12,6 +12,17 @@ const StyledModal = styled(SemanticModal)`
 
 const Container = styled.div`
   padding: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 `;
 
 const Modal = ({ children, open, setOpen, trigger }) => {

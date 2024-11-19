@@ -177,7 +177,7 @@ const Recommendation = () => {
               {recType === RecType.AI_POWERED && (
                 <img
                   src={aiPoweredIcon}
-                  alt="arrow right"
+                  alt="ai powered"
                   style={{ marginLeft: "10px" }}
                 />
               )}
