@@ -17,7 +17,7 @@ const MobileMenu = () => {
   };
 
   const mainContainerStyle = {
-    height: "100vh",
+    height: "calc(100vh - 80px)",
     display: "flex",
     backgroundColor: "#444444",
   };
@@ -206,10 +206,9 @@ const MobileMenu = () => {
                 />
               </div>
             )}
-
-            <BottomBar />
           </div>
         </div>
+        <BottomBar />
       </div>
     </div>
   );
