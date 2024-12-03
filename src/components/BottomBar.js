@@ -32,6 +32,15 @@ const BottomBar = () => {
     <FixedBottomBar>
       <Button>
         <Icon
+          name="search"
+          size="large"
+          color="black"
+          style={{ margin: "0 0 5px 0" }}
+        />
+        Discovery
+      </Button>
+      <Button>
+        <Icon
           name="camera"
           size="large"
           color="black"
