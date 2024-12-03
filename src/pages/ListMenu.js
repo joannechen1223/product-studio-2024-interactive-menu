@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Menu as MenuContainer, MenuItem } from "semantic-ui-react";
 import styled from "styled-components";
 
+import { AIChatButton } from "../components/AIChatButton";
 import BottomBar from "../components/BottomBar";
 import { HorizontalLine } from "../components/HorizontalLine";
 import MenuItemCard from "../components/MenuItemCard";
@@ -67,7 +68,7 @@ const ContentWrapper = styled.div`
 const ListMenu = () => {
   const { groups, items } = useSelector((state) => state.menu);
   const [activeItem, setActiveItem] = useState(groups[0].groupId);
-
+  const [isAIChatOpen, setIsAIChatOpen] = useState(false);
   return (
     <>
       <TopBar />
@@ -102,6 +103,7 @@ const ListMenu = () => {
           </ContentWrapper>
         </MenuContent>
       </ScrollableContainer>
+      <AIChatButton isOpen={isAIChatOpen} setIsOpen={setIsAIChatOpen} />
       <BottomBar />
     </>
   );
