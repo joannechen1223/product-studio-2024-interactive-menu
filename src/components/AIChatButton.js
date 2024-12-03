@@ -75,7 +75,7 @@ const ContentContainer = styled.div`
 `;
 
 const SearchBar = styled.input`
-  width: 75%;
+  width: 70%;
   height: 46px;
   border-radius: 12px;
   border: 1px solid #eee;
@@ -219,7 +219,11 @@ const AIChatButton = ({ isOpen, setIsOpen }) => {
                 />
               </EnterButton>
               <VoiceButton>
-                <Icon name="microphone" style={{ margin: "0" }} size="large" />
+                <Icon
+                  name="microphone"
+                  style={{ color: "#000000", margin: "0" }}
+                  size="large"
+                />
               </VoiceButton>
             </SearchContainer>
           </Container>
