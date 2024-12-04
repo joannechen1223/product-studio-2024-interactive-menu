@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/product-studio-2024-interactive-menu/static/css/main.525cbc66.css",
-    "main.js": "/product-studio-2024-interactive-menu/static/js/main.856627d3.js",
+    "main.js": "/product-studio-2024-interactive-menu/static/js/main.8c2cf926.js",
     "static/js/453.194923b3.chunk.js": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js",
     "static/media/menu.jpg": "/product-studio-2024-interactive-menu/static/media/menu.28f9cbf4a8f7623c60da.jpg",
     "static/media/brand-icons.svg": "/product-studio-2024-interactive-menu/static/media/brand-icons.6729d29753e000c17489.svg",
@@ -54,11 +54,11 @@
     "static/media/closePopup.svg": "/product-studio-2024-interactive-menu/static/media/closePopup.d2829a12239a7830ae659317b769b53d.svg",
     "index.html": "/product-studio-2024-interactive-menu/index.html",
     "main.525cbc66.css.map": "/product-studio-2024-interactive-menu/static/css/main.525cbc66.css.map",
-    "main.856627d3.js.map": "/product-studio-2024-interactive-menu/static/js/main.856627d3.js.map",
+    "main.8c2cf926.js.map": "/product-studio-2024-interactive-menu/static/js/main.8c2cf926.js.map",
     "453.194923b3.chunk.js.map": "/product-studio-2024-interactive-menu/static/js/453.194923b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.525cbc66.css",
-    "static/js/main.856627d3.js"
+    "static/js/main.8c2cf926.js"
   ]
 }
