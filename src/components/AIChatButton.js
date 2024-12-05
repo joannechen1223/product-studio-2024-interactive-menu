@@ -1,4 +1,3 @@
-import OpenAI from "openai";
 import { useState } from "react";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
@@ -7,11 +6,9 @@ import aiChatIcon from "../assets/icons/aiChat.svg";
 import aiPoweredIcon from "../assets/icons/aiPowered.svg";
 import closePopupIcon from "../assets/icons/closePopup.svg";
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: "API_KEY_HERE",
-  dangerouslyAllowBrowser: true,
-});
+// Initialize chat endpoint
+const CHAT_ENDPOINT =
+  "http://nestjs-playground.us-east-2.elasticbeanstalk.com/chat";
 
 // Styled components remain the same...
 const ButtonContainer = styled.div`
@@ -243,26 +240,29 @@ const AIChatButton = ({ isOpen, setIsOpen }) => {
     setChatHistory(updatedHistory); // Update with user message
 
     try {
-      const messages = [
-        { role: "system", content: generateSystemPrompt() },
-        ...updatedHistory.map((msg) => ({
-          role: msg.isUser ? "user" : "assistant",
-          content: msg.text,
-        })),
-      ];
-
-      const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: messages,
-        max_tokens: 150,
-        temperature: 0.7,
+      const response = await fetch(CHAT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          systemPrompt: generateSystemPrompt(),
+          history: updatedHistory.map((msg) => ({
+            role: msg.isUser ? "user" : "assistant",
+            content: msg.text,
+          })),
+        }),
       });
+      if (!response.ok) {
+        throw new Error("Failed to fetch chat response");
+      }
+      const data = await response.json();
 
       // Add AI response to chat
-      const aiResponse = completion.choices[0].message.content;
+      const aiResponse = data.message;
       setChatHistory([...updatedHistory, { text: aiResponse, isUser: false }]);
     } catch (error) {
-      console.error("Error calling OpenAI API:", error);
+      console.error("Error calling chat API:", error);
       setChatHistory([
         ...updatedHistory,
         {
