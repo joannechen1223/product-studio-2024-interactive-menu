@@ -1,3 +1,4 @@
+import OpenAI from "openai";
 import { useState } from "react";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
@@ -5,6 +6,14 @@ import styled from "styled-components";
 import aiChatIcon from "../assets/icons/aiChat.svg";
 import aiPoweredIcon from "../assets/icons/aiPowered.svg";
 import closePopupIcon from "../assets/icons/closePopup.svg";
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: "API_KEY_HERE",
+  dangerouslyAllowBrowser: true,
+});
+
+// Styled components remain the same...
 const ButtonContainer = styled.div`
   position: fixed;
   bottom: 100px;
@@ -46,32 +55,30 @@ const SearchContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  position: absolute; // Position at bottom
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 20px;
-  background-color: #ffffff; // In case content scrolls behind it
-  border-top: 1px solid #eee; // Optional: adds separation
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
 `;
 
 const ContentContainer = styled.div`
   flex: 1;
   padding: 5px;
-  padding-bottom: 80px; // Add space for SearchContainer
-  overflow-y: auto; // Allow content to scroll
+  padding-bottom: 80px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const SearchBar = styled.input`
@@ -91,6 +98,12 @@ const EnterButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: #000000;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
 `;
 
 const VoiceButton = styled.button`
@@ -144,26 +157,128 @@ const UserAvatar = styled.div`
   background-color: #888888;
 `;
 
+const LoadingDots = styled.div`
+  display: inline-block;
+
+  &::after {
+    content: "...";
+    animation: dots 1.5s steps(5, end) infinite;
+  }
+
+  @keyframes dots {
+    0%,
+    20% {
+      content: ".";
+    }
+    40% {
+      content: "..";
+    }
+    60%,
+    100% {
+      content: "...";
+    }
+  }
+`;
+
 const AIChatButton = ({ isOpen, setIsOpen }) => {
   const [searchText, setSearchText] = useState("");
   const [chatHistory, setChatHistory] = useState([
     { text: "Ask me anything about the menu!", isUser: false },
   ]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const generateSystemPrompt = () => {
+    return "You are a helpful restaurant assistant. Help customers choose dishes from our menu based on their preferences. Keep responses concise and friendly. These are all available choices: Soupe à l'Oignon, Escargots à la Bourguignonne, Steak Tartare, Mousse de Foie, Pâté en Croûte, Granola, Salade de Fruits, Pain Perdu, Salade Niçoise, Saumon d'Écosse, Salade Lyonnaise, Croque Madame, Toast Avocat et Tomate, Eggs Benedict, Eggs Norwegian, Steak aux Œufs, Omelette au Choix, Brandade de Morue, Saumon à la Poêle, Cuisse de Canard Confite, Steak Sandwich Parisien, Boucherie Burger (Premium Beef Burger), Boucherie Beyond Burger (Premium Plant Based Burger), Wagyu Burger, Steak Frites";
+  };
+
+  const generateSystemPromptIndex = () => {
+    return `You are a helpful restaurant assistant. When users describe their preferences or ask for recommendations, respond ONLY with an array of item IDs that match their request, using this format: [1, 14, 15]. Do not include any other text or explanations.
+  
+  Available dishes and their IDs:
+  [1] Soupe à l'Oignon (onion soup, warm, savory)
+  [2] Escargots (garlic, herbs)
+  [3] Steak Tartare (raw beef)
+  [4] Mousse de Foie (liver mousse)
+  [5] Pâté en Croûte (meat terrine)
+  [6] Granola (breakfast, healthy)
+  [7] Salade de Fruits (fresh fruit)
+  [8] Croque Madame (sandwich, egg)
+  [9] Toast Avocat (avocado toast)
+  [10] Eggs Benedict
+  [11] Eggs Norwegian (salmon)
+  [12] Steak aux Œufs (steak & eggs)
+  [13] Omelette au Choix (custom omelette)
+  [14] Saumon à la Poêle (pan-seared salmon)
+  [15] Cuisse de Canard (duck leg)
+  [16] Steak Sandwich
+  [17] Boucherie Burger (beef burger)
+  [18] Boucherie Beyond (vegetarian burger)
+  [19] Wagyu Burger (premium beef)
+  [20] Steak Frites
+  [21] Pain Perdu (french toast)
+  [22] Salade Niçoise (tuna salad)
+  [23] Saumon d'Écosse (scottish salmon)
+  [24] Salade Lyonnaise (bacon, egg salad)
+  [25] Brandade de Morue (cod fish)
+  
+  Example user: "I want something with salmon"
+  Example response: [11, 14, 23]`;
+  };
 
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
   };
 
-  const handleEnterButtonClick = () => {
-    setChatHistory([
+  const handleEnterButtonClick = async () => {
+    if (!searchText.trim() || isLoading) return;
+
+    const userMessage = searchText.trim();
+    const updatedHistory = [
       ...chatHistory,
-      { text: searchText, isUser: true },
-      {
-        text: "You could check out Soupe A L'oignon from this menu. It has a sweet, savory, and cheesy taste.",
-        isUser: false,
-      },
-    ]);
-    setSearchText("");
+      { text: userMessage, isUser: true },
+    ];
+
+    setSearchText(""); // Clear input
+    setIsLoading(true);
+    setChatHistory(updatedHistory); // Update with user message
+
+    try {
+      const messages = [
+        { role: "system", content: generateSystemPrompt() },
+        ...updatedHistory.map((msg) => ({
+          role: msg.isUser ? "user" : "assistant",
+          content: msg.text,
+        })),
+      ];
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: messages,
+        max_tokens: 150,
+        temperature: 0.7,
+      });
+
+      // Add AI response to chat
+      const aiResponse = completion.choices[0].message.content;
+      setChatHistory([...updatedHistory, { text: aiResponse, isUser: false }]);
+    } catch (error) {
+      console.error("Error calling OpenAI API:", error);
+      setChatHistory([
+        ...updatedHistory,
+        {
+          text: "I'm sorry, I'm having trouble connecting right now. Please try again later.",
+          isUser: false,
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !isLoading) {
+      handleEnterButtonClick();
+    }
   };
 
   return (
@@ -204,14 +319,28 @@ const AIChatButton = ({ isOpen, setIsOpen }) => {
                   </MessageContainer>
                 );
               })}
+              {isLoading && (
+                <MessageContainer isUser={false}>
+                  <AIAvatar>
+                    <img src={aiPoweredIcon} alt="AI avatar" />
+                  </AIAvatar>
+                  <MessageText isUser={false}>
+                    <LoadingDots />
+                  </MessageText>
+                </MessageContainer>
+              )}
             </ContentContainer>
             <SearchContainer>
               <SearchBar
                 placeholder="I want something warm/sweet/..."
                 value={searchText}
                 onChange={handleSearchTextChange}
+                onKeyPress={handleKeyPress}
               />
-              <EnterButton onClick={handleEnterButtonClick}>
+              <EnterButton
+                onClick={handleEnterButtonClick}
+                disabled={isLoading || !searchText.trim()}
+              >
                 <Icon
                   name="arrow right"
                   style={{ color: "#ffffff", margin: "0" }}
