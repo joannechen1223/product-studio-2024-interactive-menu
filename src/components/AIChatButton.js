@@ -7,8 +7,7 @@ import aiPoweredIcon from "../assets/icons/aiPowered.svg";
 import closePopupIcon from "../assets/icons/closePopup.svg";
 
 // Initialize chat endpoint
-const CHAT_ENDPOINT =
-  "http://nestjs-playground.us-east-2.elasticbeanstalk.com/chat";
+const CHAT_ENDPOINT = "https://playground-api.joannechen1223.info/chat";
 
 // Styled components remain the same...
 const ButtonContainer = styled.div`
