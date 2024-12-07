@@ -181,10 +181,6 @@ const AIChatButton = ({ isOpen, setIsOpen }) => {
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const generateSystemPrompt = () => {
-    return "You are a helpful restaurant assistant. Help customers choose dishes from our menu based on their preferences. Keep responses concise and friendly. These are all available choices: Soupe à l'Oignon, Escargots à la Bourguignonne, Steak Tartare, Mousse de Foie, Pâté en Croûte, Granola, Salade de Fruits, Pain Perdu, Salade Niçoise, Saumon d'Écosse, Salade Lyonnaise, Croque Madame, Toast Avocat et Tomate, Eggs Benedict, Eggs Norwegian, Steak aux Œufs, Omelette au Choix, Brandade de Morue, Saumon à la Poêle, Cuisse de Canard Confite, Steak Sandwich Parisien, Boucherie Burger (Premium Beef Burger), Boucherie Beyond Burger (Premium Plant Based Burger), Wagyu Burger, Steak Frites";
-  };
-
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
   };
@@ -203,7 +199,7 @@ const AIChatButton = ({ isOpen, setIsOpen }) => {
     setChatHistory(updatedHistory); // Update with user message
 
     try {
-      const aiResponse = await chat(updatedHistory);
+      const aiResponse = await chat(false, updatedHistory);
       setChatHistory([...updatedHistory, { text: aiResponse, isUser: false }]);
     } catch (error) {
       console.error("Error calling chat API:", error);

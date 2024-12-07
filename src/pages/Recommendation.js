@@ -93,21 +93,6 @@ const Title = styled.div`
   align-items: center;
 `;
 
-const RecTypeSwitchLink = styled.div`
-  font-family: Arial;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 16.1px;
-  text-align: left;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: auto;
-  color: #2f6ce7;
-  padding: 7px 0;
-`;
-
 const MenuCardContainer = styled.div`
   width: 100%;
   border: 1px solid #dedede;
