@@ -6,15 +6,15 @@ import item_10 from "../assets/food/hors_doeuvres/chevre.webp";
 import item_13 from "../assets/food/hors_doeuvres/chia_pudding.webp";
 import item_5 from "../assets/food/hors_doeuvres/les_escargots.webp";
 import item_9 from "../assets/food/hors_doeuvres/mousse_foie_gras.webp";
+import item_16 from "../assets/food/hors_doeuvres/pain_perdu.webp";
 import item_8 from "../assets/food/hors_doeuvres/salade_cesar.webp";
 import item_7 from "../assets/food/hors_doeuvres/salade_mesclun.webp";
 import item_3 from "../assets/food/hors_doeuvres/salade_nicoise.webp";
+import item_11 from "../assets/food/hors_doeuvres/saumon_fume.webp";
 import item_1 from "../assets/food/hors_doeuvres/soupe_a_loignon.webp";
 import item_4 from "../assets/food/hors_doeuvres/steak_tartare.webp";
 import item_6 from "../assets/food/hors_doeuvres/wagyu_carpaccio.webp";
-import item_11 from "../assets/food/hors_doeuvres/saumon_fume.webp";
 import item_14 from "../assets/food/hors_doeuvres/yogurt_parfait.webp";
-import item_16 from "../assets/food/hors_doeuvres/pain_perdu.webp";
 
 // Les Oeufs
 import item_17 from "../assets/food/les_oeufs/eggs_benedict.webp";
@@ -671,10 +671,7 @@ const menuData = [
         translationName: "Custom Omelette",
         description: "French-style omelette with choice of fillings",
         mapping: "Soft Eggs + Ham + Cheese or Mushrooms + Cheese",
-        ingredients: [
-          "Eggs",
-          "Choice of: Jambon & Gruyère or Champignon & Gruyère",
-        ],
+        ingredients: ["Eggs", "Jambon", "Gruyère", "Champignon"],
         allergens: ["Eggs", "Dairy"],
         personalizationScore: 86,
         imageUrls: [item_20],

@@ -10,7 +10,7 @@ const MobileMenu = () => {
     margin: "auto",
     position: "relative",
     width: "100vw",
-    height: "700px",
+    height: "750px",
     overflowX: "auto",
     overflowY: "hidden",
     WebkitOverflowScrolling: "touch",
@@ -47,8 +47,23 @@ const MobileMenu = () => {
     transition: "background-color 0.3s",
     whiteSpace: "nowrap",
     touchAction: "manipulation",
-    marginTop: "10px",
-    marginBottom: "10px",
+    marginTop: "3.5px",
+    marginBottom: "3.5px",
+  };
+
+  const linkStyle_thin = {
+    display: "block",
+    padding: "4px 8px",
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    textDecoration: "none",
+    color: "white",
+    borderRadius: "4px",
+    fontSize: "14px",
+    transition: "background-color 0.3s",
+    whiteSpace: "nowrap",
+    touchAction: "manipulation",
+    marginTop: "1.5px",
+    marginBottom: "1.5px",
   };
 
   const linkStyle_broad = {
@@ -102,96 +117,120 @@ const MobileMenu = () => {
             <TopBar />
           </div>
 
-          <div style={{ position: "absolute", inset: 0, paddingBottom: "10%" }}>
-            {/* Hors D'oeuvres Left */}
-            <div style={{ ...sectionStyle, top: "18%", left: "5%" }}>
+          <div style={{ position: "absolute", inset: 0, paddingBottom: "0" }}>
+            {/* Left Side - Hors D'oeuvres */}
+            <div style={{ ...sectionStyle, top: "35%", left: "5%" }}>
               <a href="#/menu-item/1" style={linkStyle}>
-                Soupe a l'Oignon
+                Soupe à l'Oignon
               </a>
               <a href="#/menu-item/2" style={linkStyle}>
-                Escargots
+                Bisque de Homard
               </a>
               <a href="#/menu-item/3" style={linkStyle}>
-                Steak Tartare
+                La Salade Niçoise
               </a>
-              <a href="#/menu-item/4" style={linkStyle_broad}>
-                Mousse de Foie
+              <a href="#/menu-item/4" style={linkStyle}>
+                Prime Steak Tartare
               </a>
-              <a href="#/menu-item/5" style={linkStyle_broad}>
-                Pâté en Croûte
+              <a href="#/menu-item/5" style={linkStyle}>
+                Les Escargots
               </a>
-              <a href="#/menu-item/6" style={linkStyle_broad}>
-                Granola
+              <a href="#/menu-item/6" style={linkStyle}>
+                Wagyu Carpaccio
               </a>
               <a href="#/menu-item/7" style={linkStyle}>
-                Salade de Fruits
+                Salade Mesclun au Croquette de Chèvre
               </a>
-            </div>
-
-            {/* Hors D'oeuvres Center-Left */}
-            <div style={{ ...sectionStyle, top: "22%", left: "27%" }}>
-              <a href="#/menu-item/21" style={linkStyle}>
-                Pain Perdu
-              </a>
-              <a href="#/menu-item/22" style={linkStyle}>
-                Salade Niçoise
-              </a>
-              <a href="#/menu-item/23" style={linkStyle}>
-                Saumon D'Ecosse
-              </a>
-              <a href="#/menu-item/24" style={linkStyle_broad}>
-                Salade Lyonnaise
-              </a>
-            </div>
-
-            {/* Les Oeufs Center-Right */}
-            <div style={{ ...sectionStyle, top: "29%", left: "53%" }}>
               <a href="#/menu-item/8" style={linkStyle}>
-                Le Croque Madame
+                Salade César
               </a>
-              <a href="#/menu-item/9" style={linkStyle_broad}>
-                Toast Avocat et Tomate
+            </div>
+
+            {/* Center-Left - Les Tartines & Les Sucrés */}
+            <div style={{ ...sectionStyle, top: "10%", left: "30%" }}>
+              <a href="#/menu-item/9" style={linkStyle}>
+                Mousse de Foie Gras
               </a>
-              <a href="#/menu-item/10" style={linkStyle_broad}>
+              <div className="tartines" style={{ marginTop: "40px" }}>
+                <a href="#/menu-item/10" style={linkStyle_broad}>
+                  Chèvre
+                </a>
+                <a href="#/menu-item/11" style={linkStyle}>
+                  Saumon Fumé
+                </a>
+                <a href="#/menu-item/12" style={linkStyle_broad}>
+                  Avocat et Tomate
+                </a>
+              </div>
+              <div className="sucres" style={{ marginTop: "90px" }}>
+                <a href="#/menu-item/13" style={linkStyle}>
+                  Chia Seed Pudding
+                </a>
+                <a href="#/menu-item/14" style={linkStyle_broad}>
+                  Yogurt Parfait
+                </a>
+                <a href="#/menu-item/15" style={linkStyle_broad}>
+                  Boucherie Waffles
+                </a>
+                <a href="#/menu-item/16" style={linkStyle_broad}>
+                  Pain Perdu
+                </a>
+              </div>
+            </div>
+
+            {/* Center - Les Oeufs */}
+            <div style={{ ...sectionStyle, top: "30%", left: "53.5%" }}>
+              <a href="#/menu-item/17" style={linkStyle}>
                 Eggs Benedict
               </a>
-              <a href="#/menu-item/11" style={linkStyle}>
+              <a href="#/menu-item/18" style={linkStyle}>
                 Eggs Norwegian
               </a>
-              <a href="#/menu-item/12" style={linkStyle}>
+              <a href="#/menu-item/19" style={linkStyle}>
                 Steak aux Oeufs
               </a>
-              <a href="#/menu-item/13" style={linkStyle}>
+              <a href="#/menu-item/20" style={linkStyle_broad}>
                 Omelette au Choix
               </a>
-              <a href="#/menu-item/25" style={linkStyle}>
-                Brandade de Morue
+              <a href="#/menu-item/21" style={linkStyle}>
+                Oeufs Meurette
               </a>
             </div>
 
-            {/* Plats Principaux Right */}
-            <div style={{ ...sectionStyle, top: "17%", right: "10%" }}>
-              <a href="#/menu-item/14" style={linkStyle}>
-                Saumon à la Poêle
-              </a>
-              <a href="#/menu-item/15" style={linkStyle}>
-                Cuisse De Canard Confite
-              </a>
-              <a href="#/menu-item/16" style={linkStyle_broad}>
-                Steak Sandwich
-              </a>
-              <a href="#/menu-item/17" style={linkStyle_broad}>
-                Boucherie Burger
-              </a>
-              <a href="#/menu-item/18" style={linkStyle_broad}>
-                Boucherie Beyond Burger
-              </a>
-              <a href="#/menu-item/19" style={linkStyle_broad}>
-                Wagyu Burger
-              </a>
-              <a href="#/menu-item/20" style={linkStyle}>
+            {/* Right Side - Plats Principaux & Les Sandwiches */}
+            <div style={{ ...sectionStyle, top: "18%", right: "15%" }}>
+              <a href="#/menu-item/22" style={linkStyle}>
                 Steak Frites
               </a>
+              <a href="#/menu-item/23" style={linkStyle_thin}>
+                Moules Dijonnaise
+              </a>
+              <a href="#/menu-item/24" style={linkStyle_thin}>
+                Coq au Vin
+              </a>
+              <a href="#/menu-item/25" style={linkStyle_thin}>
+                Saumon Rôti
+              </a>
+              <a href="#/menu-item/26" style={linkStyle_thin}>
+                Les St Jacques Rôties
+              </a>
+              <div className="sandwiches" style={{ marginTop: "38px" }}>
+                <a href="#/menu-item/27" style={linkStyle}>
+                  Le Croque Monsieur
+                </a>
+                <a href="#/menu-item/28" style={linkStyle}>
+                  Le Croque Madame
+                </a>
+                <a href="#/menu-item/29" style={linkStyle_broad}>
+                  Sandwich au Boeuf
+                </a>
+                <a href="#/menu-item/30" style={linkStyle_broad}>
+                  Boucherie Burger
+                </a>
+                <a href="#/menu-item/31" style={linkStyle_broad}>
+                  Wagyu Burger
+                </a>
+              </div>
             </div>
 
             {tipVisible && (
