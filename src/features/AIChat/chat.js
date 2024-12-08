@@ -2,41 +2,47 @@
 const CHAT_ENDPOINT = "https://playground-api.joannechen1223.info/chat";
 
 const generateSystemPrompt = () => {
-  return "You are a helpful restaurant assistant. Help customers choose dishes from our menu based on their preferences. Keep responses concise and friendly. These are all available choices: Soupe à l'Oignon, Escargots à la Bourguignonne, Steak Tartare, Mousse de Foie, Pâté en Croûte, Granola, Salade de Fruits, Pain Perdu, Salade Niçoise, Saumon d'Écosse, Salade Lyonnaise, Croque Madame, Toast Avocat et Tomate, Eggs Benedict, Eggs Norwegian, Steak aux Œufs, Omelette au Choix, Brandade de Morue, Saumon à la Poêle, Cuisse de Canard Confite, Steak Sandwich Parisien, Boucherie Burger (Premium Beef Burger), Boucherie Beyond Burger (Premium Plant Based Burger), Wagyu Burger, Steak Frites";
+  return "You are a helpful restaurant assistant. Help customers choose dishes from our menu based on their preferences. Keep responses concise and friendly. These are all available choices: Soupe à l'Oignon (French onion soup), Bisque de Homard (lobster soup), La Salade Niçoise (tuna salad), Prime Steak Tartare (raw beef), Les Escargots (snails), Wagyu Carpaccio (raw beef), Salade Mesclun (goat cheese salad), Salade César (caesar salad), Mousse De Foie Gras (duck liver), Chèvre (goat cheese toast), Saumon Fumé (smoked salmon toast), Avocat Et Tomate (avocado toast), Chia Seed Pudding, Yogurt Parfait, Boucherie Waffles, Pain Perdu (French toast), Eggs Benedict, Eggs Norwegian (with salmon), Steak Aux Oeufs (steak & eggs), Omelette Au Choix (custom omelette), Oeufs Meurette (wine poached eggs), Steak Frites, Moules Dijonnaise (mussels), Coq Au Vin (braised chicken), Saumon Roti (roasted salmon), Les St Jacques Roties (scallops), Le Croque Monsieur (ham & cheese), Le Croque Madame (with egg), Sandwich Au Boeuf (steak sandwich), Boucherie Burger (dry aged beef), Wagyu Burger";
 };
 
 const generateSystemPromptIndex = () => {
   return `You are a helpful restaurant assistant. When users describe their preferences or ask for recommendations, respond ONLY with an array of item IDs that match their request, using this format: [1, 14, 15]. Do not include any other text or explanations.
   
   Available dishes and their IDs:
-  [1] Soupe à l'Oignon (onion soup, warm, savory)
-  [2] Escargots (garlic, herbs)
-  [3] Steak Tartare (raw beef)
-  [4] Mousse de Foie (liver mousse)
-  [5] Pâté en Croûte (meat terrine)
-  [6] Granola (breakfast, healthy)
-  [7] Salade de Fruits (fresh fruit)
-  [8] Croque Madame (sandwich, egg)
-  [9] Toast Avocat (avocado toast)
-  [10] Eggs Benedict
-  [11] Eggs Norwegian (salmon)
-  [12] Steak aux Œufs (steak & eggs)
-  [13] Omelette au Choix (custom omelette)
-  [14] Saumon à la Poêle (pan-seared salmon)
-  [15] Cuisse de Canard (duck leg)
-  [16] Steak Sandwich
-  [17] Boucherie Burger (beef burger)
-  [18] Boucherie Beyond (vegetarian burger)
-  [19] Wagyu Burger (premium beef)
-  [20] Steak Frites
-  [21] Pain Perdu (french toast)
-  [22] Salade Niçoise (tuna salad)
-  [23] Saumon d'Écosse (scottish salmon)
-  [24] Salade Lyonnaise (bacon, egg salad)
-  [25] Brandade de Morue (cod fish)
+  [1] Soupe à l'Oignon (French onion soup, cheese, warm, savory)
+  [2] Bisque de Homard (lobster soup, creamy)
+  [3] La Salade Niçoise (tuna, vegetables, eggs)
+  [4] Prime Steak Tartare (raw beef, capers, egg)
+  [5] Les Escargots (snails, garlic butter, herbs)
+  [6] Wagyu Carpaccio (raw beef, truffle, horseradish)
+  [7] Salade Mesclun (mixed greens, goat cheese, apples)
+  [8] Salade César (romaine, anchovy, parmesan)
+  [9] Mousse De Foie Gras (duck liver, cherries)
+  [10] Chèvre (goat cheese toast, vegetables)
+  [11] Saumon Fumé (smoked salmon toast, eggs)
+  [12] Avocat Et Tomate (avocado toast, eggs)
+  [13] Chia Seed Pudding (healthy, coconut, berries)
+  [14] Yogurt Parfait (yogurt, granola, berries)
+  [15] Boucherie Waffles (Belgian waffles, cream)
+  [16] Pain Perdu (French toast, berries)
+  [17] Eggs Benedict (ham, hollandaise)
+  [18] Eggs Norwegian (salmon, hollandaise)
+  [19] Steak Aux Oeufs (steak and eggs)
+  [20] Omelette Au Choix (custom omelette)
+  [21] Oeufs Meurette (poached eggs, wine sauce)
+  [22] Steak Frites (steak, french fries)
+  [23] Moules Dijonnaise (mussels, mustard sauce)
+  [24] Coq Au Vin (chicken, wine sauce)
+  [25] Saumon Roti (roasted salmon)
+  [26] Les St Jacques Roties (scallops, squash)
+  [27] Le Croque Monsieur (ham and cheese sandwich)
+  [28] Le Croque Madame (ham and cheese sandwich, egg)
+  [29] Sandwich Au Boeuf (steak sandwich)
+  [30] Boucherie Burger (dry aged beef burger)
+  [31] Wagyu Burger (wagyu beef burger)
   
   Example user: "I want something with salmon"
-  Example response: [11, 14, 23]`;
+  Example response: [11, 18, 25]`;
 };
 
 export const chat = async (isIndex, messages) => {
