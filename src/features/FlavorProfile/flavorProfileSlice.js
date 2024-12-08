@@ -31,6 +31,8 @@ const flavorProfileSlice = createSlice({
   },
 });
 
+export const selectFlavorProfile = (state) => state.flavorProfile;
+
 export const {
   setSelectedFlavors,
   clearFlavors,

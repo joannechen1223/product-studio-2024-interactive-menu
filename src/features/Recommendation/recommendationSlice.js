@@ -12,8 +12,11 @@ const recommendationSlice = createSlice({
     setRecType: (state, action) => {
       state.recType = action.payload;
     },
+    setRecommendList: (state, action) => {
+      state.recommendList = action.payload;
+    },
   },
 });
 
-export const { setRecType } = recommendationSlice.actions;
+export const { setRecType, setRecommendList } = recommendationSlice.actions;
 export default recommendationSlice.reducer;

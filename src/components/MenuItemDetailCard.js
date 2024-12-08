@@ -79,6 +79,15 @@ const LikePercentageText = styled.span`
   font-weight: 800;
 `;
 
+const Description = styled.div`
+  font-family: Newsreader;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: #552300;
+`;
+
 const IngredientsTitle = styled.div`
   font-family: Arial;
   font-size: 21.6px;
@@ -163,6 +172,7 @@ const MenuItemDetailCard = ({ item, backButton }) => {
         <LikePercentageText>{likePercentage}%</LikePercentageText> chance you'll
         like it
       </LikeTag>
+      <Description>{item.description}</Description>
       <IngredientsTitle>Main Ingredients</IngredientsTitle>
       <IngredientsContainer>
         {item.ingredients.map((ingredient, index) => (
